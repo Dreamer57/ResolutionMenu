@@ -16,6 +16,28 @@
 		5E2422791C4C14A50016019B /* Resolution Menu Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2422671C4C135B0016019B /* Resolution Menu Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E24227E1C4C151F0016019B /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E24227D1C4C151F0016019B /* StartAtLoginController.m */; };
 		5E2422811C4C23F60016019B /* DisplayModeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2422801C4C23F60016019B /* DisplayModeMenuItem.m */; };
+		F42157502AD924FD00AFD87C /* KeyboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421574E2AD924FD00AFD87C /* KeyboardMonitor.swift */; };
+		F42157512AD924FD00AFD87C /* KMCallBackFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421574F2AD924FD00AFD87C /* KMCallBackFunctions.swift */; };
+		F42157532AD94D6F00AFD87C /* KeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42157522AD94D6F00AFD87C /* KeyMonitor.swift */; };
+		F452879F2ADA9496003CDBC1 /* DisplayPreferencesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F452879E2ADA9495003CDBC1 /* DisplayPreferencesWrapper.swift */; };
+		F47F11802AD9762700A30F8B /* ShellCommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F117F2AD9762700A30F8B /* ShellCommandRunner.swift */; };
+		F47F11822AD977DE00A30F8B /* DisplayPreferencesShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F11812AD977DE00A30F8B /* DisplayPreferencesShell.swift */; };
+		F47F11862AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F11852AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift */; };
+		F47F11892AD9C3C900A30F8B /* DisplayDegreeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F11882AD9C3C900A30F8B /* DisplayDegreeMenuItem.m */; };
+		F47F11A72ADA08DA00A30F8B /* ExecutableRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F11A62ADA08DA00A30F8B /* ExecutableRunner.swift */; };
+		F47F11A92ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F11A82ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift */; };
+		F47F328E2ADA25A100ED166F /* DisplayPlacer.c in Sources */ = {isa = PBXBuildFile; fileRef = F47F32872ADA25A100ED166F /* DisplayPlacer.c */; };
+		F47F32912ADA25A100ED166F /* MonitorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F328D2ADA25A100ED166F /* MonitorPanel.m */; };
+		F47F380A2ADA34DE00ED166F /* MonitorPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38092ADA34DE00ED166F /* MonitorPanel.framework */; };
+		F47F380C2ADA681C00ED166F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F380B2ADA681C00ED166F /* IOKit.framework */; };
+		F47F380E2ADA683900ED166F /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F380D2ADA683900ED166F /* ApplicationServices.framework */; };
+		F47F38102ADA685500ED166F /* DisplayServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F380F2ADA685500ED166F /* DisplayServices.framework */; };
+		F47F38122ADA687000ED166F /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38112ADA687000ED166F /* CoreDisplay.framework */; };
+		F47F38142ADA688400ED166F /* OSD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38132ADA688400ED166F /* OSD.framework */; };
+		F47F38162ADA689D00ED166F /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38152ADA689D00ED166F /* SkyLight.framework */; };
+		F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */; };
+		F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C982ADBCA6D008E040C /* Extensions.swift */; };
+		F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +81,34 @@
 		5E24227F1C4C23F60016019B /* DisplayModeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayModeMenuItem.h; sourceTree = "<group>"; };
 		5E2422801C4C23F60016019B /* DisplayModeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayModeMenuItem.m; sourceTree = "<group>"; };
 		5E2422821C4C25A70016019B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		F421574D2AD924FD00AFD87C /* Resolution Menu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Resolution Menu-Bridging-Header.h"; sourceTree = "<group>"; };
+		F421574E2AD924FD00AFD87C /* KeyboardMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitor.swift; sourceTree = "<group>"; };
+		F421574F2AD924FD00AFD87C /* KMCallBackFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMCallBackFunctions.swift; sourceTree = "<group>"; };
+		F42157522AD94D6F00AFD87C /* KeyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMonitor.swift; sourceTree = "<group>"; };
+		F452879E2ADA9495003CDBC1 /* DisplayPreferencesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPreferencesWrapper.swift; sourceTree = "<group>"; };
+		F47F117F2AD9762700A30F8B /* ShellCommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandRunner.swift; sourceTree = "<group>"; };
+		F47F11812AD977DE00A30F8B /* DisplayPreferencesShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPreferencesShell.swift; sourceTree = "<group>"; };
+		F47F11852AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDegreeMenuItem.swift; sourceTree = "<group>"; };
+		F47F11872AD9C39F00A30F8B /* DisplayDegreeMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayDegreeMenuItem.h; sourceTree = "<group>"; };
+		F47F11882AD9C3C900A30F8B /* DisplayDegreeMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayDegreeMenuItem.m; sourceTree = "<group>"; };
+		F47F11A62ADA08DA00A30F8B /* ExecutableRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableRunner.swift; sourceTree = "<group>"; };
+		F47F11A82ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPreferencesExecutable.swift; sourceTree = "<group>"; };
+		F47F32862ADA25A100ED166F /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		F47F32872ADA25A100ED166F /* DisplayPlacer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DisplayPlacer.c; sourceTree = "<group>"; };
+		F47F328B2ADA25A100ED166F /* MonitorPanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MonitorPanel.framework; sourceTree = "<group>"; };
+		F47F328C2ADA25A100ED166F /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F47F328D2ADA25A100ED166F /* MonitorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitorPanel.m; sourceTree = "<group>"; };
+		F47F38092ADA34DE00ED166F /* MonitorPanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MonitorPanel.framework; path = ../../../../../../../System/Library/PrivateFrameworks/MonitorPanel.framework; sourceTree = "<group>"; };
+		F47F380B2ADA681C00ED166F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
+		F47F380D2ADA683900ED166F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
+		F47F380F2ADA685500ED166F /* DisplayServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DisplayServices.framework; path = ../../../../../../../System/Library/PrivateFrameworks/DisplayServices.framework; sourceTree = "<group>"; };
+		F47F38112ADA687000ED166F /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
+		F47F38132ADA688400ED166F /* OSD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSD.framework; path = ../../../../../../../System/Library/PrivateFrameworks/OSD.framework; sourceTree = "<group>"; };
+		F47F38152ADA689D00ED166F /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
+		F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayPreferencesInvoke.m; sourceTree = "<group>"; };
+		F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayPreferencesInvoke.h; sourceTree = "<group>"; };
+		F4D11C982ADBCA6D008E040C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +116,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47F38162ADA689D00ED166F /* SkyLight.framework in Frameworks */,
+				F47F38142ADA688400ED166F /* OSD.framework in Frameworks */,
+				F47F38122ADA687000ED166F /* CoreDisplay.framework in Frameworks */,
+				F47F38102ADA685500ED166F /* DisplayServices.framework in Frameworks */,
+				F47F380E2ADA683900ED166F /* ApplicationServices.framework in Frameworks */,
+				F47F380C2ADA681C00ED166F /* IOKit.framework in Frameworks */,
+				F47F380A2ADA34DE00ED166F /* MonitorPanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +142,7 @@
 				5E2422511C4C12F50016019B /* Resolution Menu */,
 				5E2422681C4C135B0016019B /* Resolution Menu Helper */,
 				5E2422501C4C12F50016019B /* Products */,
+				F47F119E2AD9E42100A30F8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +158,9 @@
 		5E2422511C4C12F50016019B /* Resolution Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F47F32852ADA25A100ED166F /* DisplayPreferences */,
+				F421574F2AD924FD00AFD87C /* KMCallBackFunctions.swift */,
+				F421574E2AD924FD00AFD87C /* KeyboardMonitor.swift */,
 				5E2422561C4C12F50016019B /* main.m */,
 				5E24225D1C4C12F50016019B /* Info.plist */,
 				5E2422521C4C12F50016019B /* AppDelegate.h */,
@@ -109,6 +170,18 @@
 				5E24227C1C4C151F0016019B /* StartAtLoginController.h */,
 				5E24227D1C4C151F0016019B /* StartAtLoginController.m */,
 				5E2422831C4C4A370016019B /* Resources */,
+				F421574D2AD924FD00AFD87C /* Resolution Menu-Bridging-Header.h */,
+				F42157522AD94D6F00AFD87C /* KeyMonitor.swift */,
+				F47F117F2AD9762700A30F8B /* ShellCommandRunner.swift */,
+				F47F11A62ADA08DA00A30F8B /* ExecutableRunner.swift */,
+				F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */,
+				F452879E2ADA9495003CDBC1 /* DisplayPreferencesWrapper.swift */,
+				F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */,
+				F47F11812AD977DE00A30F8B /* DisplayPreferencesShell.swift */,
+				F47F11A82ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift */,
+				F47F11852AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift */,
+				F47F11872AD9C39F00A30F8B /* DisplayDegreeMenuItem.h */,
+				F47F11882AD9C3C900A30F8B /* DisplayDegreeMenuItem.m */,
 			);
 			path = "Resolution Menu";
 			sourceTree = "<group>";
@@ -133,6 +206,50 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		F47F119E2AD9E42100A30F8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F47F38152ADA689D00ED166F /* SkyLight.framework */,
+				F47F38132ADA688400ED166F /* OSD.framework */,
+				F47F38112ADA687000ED166F /* CoreDisplay.framework */,
+				F47F380F2ADA685500ED166F /* DisplayServices.framework */,
+				F47F380D2ADA683900ED166F /* ApplicationServices.framework */,
+				F47F380B2ADA681C00ED166F /* IOKit.framework */,
+				F47F38092ADA34DE00ED166F /* MonitorPanel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F47F32852ADA25A100ED166F /* DisplayPreferences */ = {
+			isa = PBXGroup;
+			children = (
+				F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */,
+				F4D11C972ADBCA6D008E040C /* lib */,
+				F47F32862ADA25A100ED166F /* Header.h */,
+				F47F32872ADA25A100ED166F /* DisplayPlacer.c */,
+				F47F328A2ADA25A100ED166F /* Headers */,
+				F47F328D2ADA25A100ED166F /* MonitorPanel.m */,
+			);
+			path = DisplayPreferences;
+			sourceTree = "<group>";
+		};
+		F47F328A2ADA25A100ED166F /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F47F328B2ADA25A100ED166F /* MonitorPanel.framework */,
+				F47F328C2ADA25A100ED166F /* Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		F4D11C972ADBCA6D008E040C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				F4D11C982ADBCA6D008E040C /* Extensions.swift */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +261,7 @@
 				5E24224C1C4C12F50016019B /* Frameworks */,
 				5E24224D1C4C12F50016019B /* Resources */,
 				5E2422781C4C14910016019B /* CopyFiles */,
+				F47F11A52AD9FD2800A30F8B /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -183,6 +301,7 @@
 				TargetAttributes = {
 					5E24224E1C4C12F50016019B = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 1430;
 					};
 					5E2422661C4C135B0016019B = {
 						CreatedOnToolsVersion = 7.2;
@@ -194,8 +313,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 5E2422461C4C12F50016019B;
 			productRefGroup = 5E2422501C4C12F50016019B /* Products */;
@@ -227,14 +348,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F47F11A52AD9FD2800A30F8B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#cc -I.    DisplayPlacer.c v130.c -x objective-c MonitorPanel.m -o displayplacer  -F./Headers -F/System/Library/PrivateFrameworks -framework IOKit -framework ApplicationServices -framework DisplayServices -framework CoreDisplay -framework OSD -framework MonitorPanel -framework SkyLight -Wno-deprecated-declarations -Wall -Wempty-body -Wempty-init-stmt -Wignored-qualifiers -Winitializer-overrides -Wmissing-field-initializers -Wmissing-method-return-type -Wnull-pointer-arithmetic -Woverride-init -Wredundant-move -Wsemicolon-before-method-body -Wshift-negative-value -Wstring-compare -Wtype-limits -Wuninitialized -Wunused-parameter -Wbitfield-enum-conversion -Wbool-conversion -Wconstant-conversion -Wenum-conversion -Wimplicit-float-conversion -Wimplicit-int-conversion -Wint-conversion -Wliteral-conversion -Wnon-literal-null-conversion -Wnull-conversion -Wobjc-literal-conversion -Wshorten-64-to-32 -Wstring-conversion -Wshadow-field -Wshadow-field-in-constructor -Wshadow-uncaptured-local -Wformat -Wlogical-not-parentheses -Wnull-dereference\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5E24224B1C4C12F50016019B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47F11822AD977DE00A30F8B /* DisplayPreferencesShell.swift in Sources */,
+				F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */,
+				F47F32912ADA25A100ED166F /* MonitorPanel.m in Sources */,
+				F42157512AD924FD00AFD87C /* KMCallBackFunctions.swift in Sources */,
+				F42157502AD924FD00AFD87C /* KeyboardMonitor.swift in Sources */,
+				F47F11A92ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift in Sources */,
 				5E2422571C4C12F50016019B /* main.m in Sources */,
+				F47F11A72ADA08DA00A30F8B /* ExecutableRunner.swift in Sources */,
 				5E2422541C4C12F50016019B /* AppDelegate.m in Sources */,
+				F47F328E2ADA25A100ED166F /* DisplayPlacer.c in Sources */,
+				F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */,
+				F47F11802AD9762700A30F8B /* ShellCommandRunner.swift in Sources */,
+				F47F11892AD9C3C900A30F8B /* DisplayDegreeMenuItem.m in Sources */,
+				F42157532AD94D6F00AFD87C /* KeyMonitor.swift in Sources */,
+				F452879F2ADA9496003CDBC1 /* DisplayPreferencesWrapper.swift in Sources */,
+				F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */,
 				5E24227E1C4C151F0016019B /* StartAtLoginController.m in Sources */,
+				F47F11862AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift in Sources */,
 				5E2422811C4C23F60016019B /* DisplayModeMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +450,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -307,10 +465,54 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_MODULE_NAME = "";
 				SDKROOT = macosx;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_LDFLAGS = (
+					"-Wno-deprecated-declarations",
+					"-Wall",
+					"-Wempty-body",
+					"-Wempty-init-stmt",
+					"-Wignored-qualifiers",
+					"-Winitializer-overrides",
+					"-Wmissing-field-initializers",
+					"-Wmissing-method-return-type",
+					"-Wnull-pointer-arithmetic",
+					"-Woverride-init",
+					"-Wredundant-move",
+					"-Wsemicolon-before-method-body",
+					"-Wshift-negative-value",
+					"-Wstring-compare",
+					"-Wtype-limits",
+					"-Wuninitialized",
+					"-Wunused-parameter",
+					"-Wbitfield-enum-conversion",
+					"-Wbool-conversion",
+					"-Wconstant-conversion",
+					"-Wenum-conversion",
+					"-Wimplicit-float-conversion",
+					"-Wimplicit-int-conversion",
+					"-Wint-conversion",
+					"-Wliteral-conversion",
+					"-Wnon-literal-null-conversion",
+					"-Wnull-conversion",
+					"-Wobjc-literal-conversion",
+					"-Wshorten-64-to-32",
+					"-Wstring-conversion",
+					"-Wshadow-field",
+					"-Wshadow-field-in-constructor",
+					"-Wshadow-uncaptured-local",
+					"-Wformat",
+					"-Wlogical-not-parentheses",
+				);
 			};
 			name = Debug;
 		};
@@ -336,6 +538,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -344,9 +547,53 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_MODULE_NAME = "";
 				SDKROOT = macosx;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_LDFLAGS = (
+					"-Wno-deprecated-declarations",
+					"-Wall",
+					"-Wempty-body",
+					"-Wempty-init-stmt",
+					"-Wignored-qualifiers",
+					"-Winitializer-overrides",
+					"-Wmissing-field-initializers",
+					"-Wmissing-method-return-type",
+					"-Wnull-pointer-arithmetic",
+					"-Woverride-init",
+					"-Wredundant-move",
+					"-Wsemicolon-before-method-body",
+					"-Wshift-negative-value",
+					"-Wstring-compare",
+					"-Wtype-limits",
+					"-Wuninitialized",
+					"-Wunused-parameter",
+					"-Wbitfield-enum-conversion",
+					"-Wbool-conversion",
+					"-Wconstant-conversion",
+					"-Wenum-conversion",
+					"-Wimplicit-float-conversion",
+					"-Wimplicit-int-conversion",
+					"-Wint-conversion",
+					"-Wliteral-conversion",
+					"-Wnon-literal-null-conversion",
+					"-Wnull-conversion",
+					"-Wobjc-literal-conversion",
+					"-Wshorten-64-to-32",
+					"-Wstring-conversion",
+					"-Wshadow-field",
+					"-Wshadow-field-in-constructor",
+					"-Wshadow-uncaptured-local",
+					"-Wformat",
+					"-Wlogical-not-parentheses",
+				);
 			};
 			name = Release;
 		};
@@ -354,11 +601,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Resolution\\ Menu/DisplayPreferences/Headers";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Resolution Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.lapulapu.Resolution-Menu";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				OTHER_CFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu";
+				PRODUCT_MODULE_NAME = ResolutionMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Resolution Menu/Resolution Menu-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Debug;
 		};
@@ -366,11 +623,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Resolution\\ Menu/DisplayPreferences/Headers";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Resolution Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.lapulapu.Resolution-Menu";
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				OTHER_CFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu";
+				PRODUCT_MODULE_NAME = ResolutionMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Resolution Menu/Resolution Menu-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 			};
 			name = Release;
 		};
@@ -417,6 +683,7 @@
 				5E2422621C4C12F50016019B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E2422751C4C135B0016019B /* Build configuration list for PBXNativeTarget "Resolution Menu Helper" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +692,7 @@
 				5E2422771C4C135B0016019B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

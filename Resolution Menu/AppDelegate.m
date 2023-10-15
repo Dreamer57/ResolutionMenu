@@ -8,9 +8,17 @@
 
 #import "AppDelegate.h"
 #import "DisplayModeMenuItem.h"
+#import "DisplayDegreeMenuItem.h"
 #import <IOKit/graphics/IOGraphicsLib.h>
+#import "ResolutionMenu-Swift.h"
+#include "DisplayPreferences/Headers/Bridging-Header.h"
 
 static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
+
+// 搞了差不多3小时，局部变量被释放，资源释放线程结束。
+static KeyboardMonitor *keylogger;
+
+//static KeyboardMonitor *keyMonitor;
 
 @implementation AppDelegate
 
@@ -20,12 +28,56 @@ static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
     _statusItem.menu = self.menu;
     _statusItem.image = [NSImage imageNamed:kStatusMenuTemplateName];
     _statusItem.highlightMode = YES;
+    
+    
+    
+//    keyMonitor = [[KeyboardMonitor alloc] init];
+//    [keyMonitor start];
+    
+//    // 创建一个 dispatch group
+//    dispatch_group_t group = dispatch_group_create();
+//
+//    // 在 dispatch group 中异步执行任务
+//    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        @autoreleasepool {
+    // 搞了差不多3小时，主要是keylogger变量被释放了。
+             keylogger = [[KeyboardMonitor alloc] init];
+            [keylogger start]; // 启动 Keylogger
+
+            // 可以在这里执行其他后台任务或操作
+//            [NSRunLoop currentRunLoop]; // 启动当前线程的运行循环，以保持线程活跃
+
+//        }
+//    });
+
+//    // 在主线程或其他线程中等待 dispatch group 的完成
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//        NSLog(@"线程已经结束");
+//    });
+
+
+
 }
 
 - (void)dealloc
 {
     // Cleanup the system status bar menu, probably not strictly necessary at this point
     [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
+}
+
+- (IBAction)rotationNormal:(id)sender
+{
+    [DisplayPreferencesExecutable rotationDegree0];
+}
+
+- (IBAction)rotation270:(id)sender
+{
+    [DisplayPreferencesExecutable rotationDegree270];
+}
+
+- (IBAction)rotation90:(id)sender
+{
+    [DisplayPreferencesExecutable rotationDegree90];
 }
 
 - (IBAction)openDisplayPreferences:(id)sender
@@ -35,14 +87,23 @@ static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
 
 - (void)menuNeedsUpdate:(NSMenu *)menu
 {
+//    bool degreeInited = false;
+    int i = 0;
     // First, clear the previous items
     for (NSMenuItem *menuItem in menu.itemArray) {
         if ([menuItem hasSubmenu] || [menuItem isKindOfClass:[DisplayModeMenuItem class]]) {
             // Remove all DisplayModeMenuItems and submenus above the first separator
+            // DisplayModeMenuItem 是动态添加的
+            // 只清除 DisplayModeMenuItem，不会清除固定的 MenuItem。
+            [menu removeItem:menuItem];
+        } else if ([menuItem isKindOfClass:[DisplayDegreeMenuItem class]]) {
+//            degreeInited = true;
             [menu removeItem:menuItem];
         } else if ([menuItem isSeparatorItem]) {
             // Break at the first separator; this way submenu's below the separator stay intact
-            break;
+            // 遇到第二条分隔线 break
+            i ++;
+//            if (i == 2) break;
         }
     }
     
@@ -71,12 +132,22 @@ static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
             containerMenu = subMenu;
         }
         
+        //        if (!degreeInited) {
+                    NSArray *degreeItems = [DisplayDegreeMenuItem getMenuItemsForDisplay:displays[i]];
+                    for (NSMenuItem *menuItem in degreeItems) {
+                        // Add to the top of the menu, in reverse order (highest resolution first)
+                        [containerMenu insertItem:menuItem atIndex:0];
+                    }
+        //        }
+        
         // Add the display modes to the container menu (either the main menu or a display submenu)
         NSArray *menuItems = [DisplayModeMenuItem getMenuItemsForDisplay:displays[i]];
         for (NSMenuItem *menuItem in menuItems) {
             // Add to the top of the menu, in reverse order (highest resolution first)
-            [containerMenu insertItem:menuItem atIndex:0];
+            [containerMenu insertItem:menuItem atIndex:5];
         }
+        
+
     }
 }
 
