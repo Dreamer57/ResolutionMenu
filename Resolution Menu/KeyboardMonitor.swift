@@ -127,7 +127,7 @@ class KeyboardMonitor: NSObject
     }
     
     
-    var keyMap: [UInt32:[String]]
+    var keyMap: [UInt32:[String]] =
     {
         var map = [UInt32:[String]]()
         map[4] = ["a","A"]
@@ -166,56 +166,56 @@ class KeyboardMonitor: NSObject
         map[37] = ["8","*"]
         map[38] = ["9","("]
         map[39] = ["0",")"]
-        map[40] = ["\n","\n"]
-        map[41] = ["\\ESCAPE","\\ESCAPE"]
-        map[42] = ["\\DELETE|BACKSPACE","\\DELETE|BACKSPACE"] //
-        map[43] = ["\\TAB","\\TAB"]
-        map[44] = [" "," "]
+        map[40] = ["ENTER","\n"]
+        map[41] = ["ESCAPE","\\ESCAPE"]
+        map[42] = ["DELETE|BACKSPACE","\\DELETE|BACKSPACE"] //
+        map[43] = ["TAB","\\TAB"]
+        map[44] = ["SPACE"," "]
         map[45] = ["-","_"]
         map[46] = ["=","+"]
         map[47] = ["[","{"]
         map[48] = ["]","}"]
         map[49] = ["\\","|"]
-        map[50] = ["",""] // Keyboard Non-US# and ~2
+        map[50] = ["unknown_50",""] // Keyboard Non-US# and ~2
         map[51] = [";",":"]
         map[52] = ["'","\""]
         map[53] = ["`","~"]
         map[54] = [",","<"]
         map[55] = [".",">"]
         map[56] = ["/","?"]
-        map[57] = ["\\CAPSLOCK","\\CAPSLOCK"]
-        map[58] = ["\\F1","\\F1"]
-        map[59] = ["\\F2","\\F2"]
-        map[60] = ["\\F3","\\F3"]
-        map[61] = ["\\F4","\\F4"]
-        map[62] = ["\\F5","\\F5"]
-        map[63] = ["\\F6","\\F6"]
-        map[64] = ["\\F7","\\F7"]
-        map[65] = ["\\F8","\\F8"]
-        map[66] = ["\\F9","\\F9"]
-        map[67] = ["\\F10","\\F10"]
-        map[68] = ["\\F11","\\F11"]
-        map[69] = ["\\F12","\\F12"]
-        map[70] = ["\\PRINTSCREEN","\\PRINTSCREEN"]
-        map[71] = ["\\SCROLL-LOCK","\\SCROLL-LOCK"]
-        map[72] = ["\\PAUSE","\\PAUSE"]
-        map[73] = ["\\INSERT","\\INSERT"]
-        map[74] = ["\\HOME","\\HOME"]
-        map[75] = ["\\PAGEUP","\\PAGEUP"]
-        map[76] = ["\\DELETE-FORWARD","\\DELETE-FORWARD"] //
-        map[77] = ["\\END","\\END"]
-        map[78] = ["\\PAGEDOWN","\\PAGEDOWN"]
-        map[79] = ["\\RIGHTARROW","\\RIGHTARROW"]
-        map[80] = ["\\LEFTARROW","\\LEFTARROW"]
-        map[81] = ["\\DOWNARROW","\\DOWNARROW"]
-        map[82] = ["\\UPARROW","\\UPARROW"]
-        map[83] = ["\\NUMLOCK","\\CLEAR"]
+        map[57] = ["CAPSLOCK","\\CAPSLOCK"]
+        map[58] = ["F1","\\F1"]
+        map[59] = ["F2","\\F2"]
+        map[60] = ["F3","\\F3"]
+        map[61] = ["F4","\\F4"]
+        map[62] = ["F5","\\F5"]
+        map[63] = ["F6","\\F6"]
+        map[64] = ["F7","\\F7"]
+        map[65] = ["F8","\\F8"]
+        map[66] = ["F9","\\F9"]
+        map[67] = ["F10","\\F10"]
+        map[68] = ["F11","\\F11"]
+        map[69] = ["F12","\\F12"]
+        map[70] = ["PRINTSCREEN","\\PRINTSCREEN"]
+        map[71] = ["SCROLL-LOCK","\\SCROLL-LOCK"]
+        map[72] = ["PAUSE","\\PAUSE"]
+        map[73] = ["INSERT","\\INSERT"]
+        map[74] = ["HOME","\\HOME"]
+        map[75] = ["PAGEUP","\\PAGEUP"]
+        map[76] = ["DELETE-FORWARD","\\DELETE-FORWARD"] //
+        map[77] = ["END","\\END"]
+        map[78] = ["PAGEDOWN","\\PAGEDOWN"]
+        map[79] = ["RIGHTARROW","\\RIGHTARROW"]
+        map[80] = ["LEFTARROW","\\LEFTARROW"]
+        map[81] = ["DOWNARROW","\\DOWNARROW"]
+        map[82] = ["UPARROW","\\UPARROW"]
+        map[83] = ["NUMLOCK","\\CLEAR"]
         // Keypads
         map[84] = ["/","/"]
         map[85] = ["*","*"]
         map[86] = ["-","-"]
         map[87] = ["+","+"]
-        map[88] = ["\\ENTER","\\ENTER"]
+        map[88] = ["ENTER","\\ENTER"]
         map[89] = ["1","\\END"]
         map[90] = ["2","\\DOWNARROW"]
         map[91] = ["3","\\PAGEDOWN"]
@@ -227,17 +227,17 @@ class KeyboardMonitor: NSObject
         map[97] = ["9","\\PAGEUP"]
         map[98] = ["0","\\INSERT"]
         map[99] = [".","\\DELETE"]
-        map[100] = ["",""] //
+        map[100] = ["unknown_100",""] //
         /////
-        map[224] = ["\\LC","\\LC"] // left control
-        map[225] = ["\\LS","\\LS"] // left shift
-        map[226] = ["\\LA","\\LA"] // left alt
-        map[227] = ["\\LCMD","\\LCMD"] // left cmd
-        map[228] = ["\\RC","\\RC"] // right control
-        map[229] = ["\\RS","\\RS"] // right shift
-        map[230] = ["\\RA","\\RA"] // right alt
-        map[231] = ["\\RCMD","\\RCMD"] // right cmd
+        map[224] = ["CTRL_L","\\CTRL_L"] // left control
+        map[225] = ["SHIFT_L","\\SHIFT_L"] // left shift
+        map[226] = ["OPT_L","\\OPT_L"] // left alt
+        map[227] = ["CMD_L","\\CMD_L"] // left cmd
+        map[228] = ["CTRL_R","\\CTRL_R"] // right control
+        map[229] = ["SHIFT_R","\\SHIFT_R"] // right shift
+        map[230] = ["OPT_R","\\OPT_R"] // right alt
+        map[231] = ["CMD_R","\\CMD_R"] // right cmd
         return map
-    }
+    }()
 
 }

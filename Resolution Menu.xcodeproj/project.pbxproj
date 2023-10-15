@@ -36,6 +36,7 @@
 		F47F38142ADA688400ED166F /* OSD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38132ADA688400ED166F /* OSD.framework */; };
 		F47F38162ADA689D00ED166F /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38152ADA689D00ED166F /* SkyLight.framework */; };
 		F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */; };
+		F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */; };
 		F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C982ADBCA6D008E040C /* Extensions.swift */; };
 		F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		F47F38152ADA689D00ED166F /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
 		F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayPreferencesInvoke.m; sourceTree = "<group>"; };
 		F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayPreferencesInvoke.h; sourceTree = "<group>"; };
+		F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecorder.swift; sourceTree = "<group>"; };
 		F4D11C982ADBCA6D008E040C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				F421574D2AD924FD00AFD87C /* Resolution Menu-Bridging-Header.h */,
 				F42157522AD94D6F00AFD87C /* KeyMonitor.swift */,
 				F47F117F2AD9762700A30F8B /* ShellCommandRunner.swift */,
+				F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */,
 				F47F11A62ADA08DA00A30F8B /* ExecutableRunner.swift */,
 				F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */,
 				F452879E2ADA9495003CDBC1 /* DisplayPreferencesWrapper.swift */,
@@ -381,6 +384,7 @@
 				F42157502AD924FD00AFD87C /* KeyboardMonitor.swift in Sources */,
 				F47F11A92ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift in Sources */,
 				5E2422571C4C12F50016019B /* main.m in Sources */,
+				F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */,
 				F47F11A72ADA08DA00A30F8B /* ExecutableRunner.swift in Sources */,
 				5E2422541C4C12F50016019B /* AppDelegate.m in Sources */,
 				F47F328E2ADA25A100ED166F /* DisplayPlacer.c in Sources */,
