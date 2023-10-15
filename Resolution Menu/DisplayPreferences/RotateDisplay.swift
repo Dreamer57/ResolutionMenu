@@ -48,6 +48,10 @@ func main() {
 
 //main()
 
+/*
+ 旋转游标所在的显示器。
+ 存在的问题是，刚转过一次后，游标被挤出屏幕外，还没移回屏幕内，再转动就找不到显示器。
+ */
 func rotateCurrentDisplay(_ orientation: Int32) {
     guard let mgr = MPDisplayMgr(), let displays = mgr.displays as? [MPDisplay] else { return }
     
