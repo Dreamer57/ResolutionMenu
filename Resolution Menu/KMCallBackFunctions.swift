@@ -182,18 +182,36 @@ Outside:if pressed == 1
         }
         
     } // ctrl + cmd + opt     end
-//    else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 4) {
-//        if (keyRecorder.isKeyPressed("LEFTARROW")
-//            && keyRecorder.isKeyPressed("RIGHTARROW")) {
+    else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 4) {
+        if (keyRecorder.isKeyPressed("LEFTARROW")
+            && keyRecorder.isKeyPressed("RIGHTARROW")) {
 //            print("左右摇摆……")
-//        }
-//    }
-//    else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
-//        if (keyRecorder.isKeyPressed("LEFTARROW")
-//            && keyRecorder.isKeyPressed("RIGHTARROW")) {
+            
+            // 在需要发送通知的地方
+            let userInfo: [AnyHashable: Any] = ["type": "max", "info": "value2"] // 通知携带的信息
+            let notification = Notification(name: Notification.Name("Notification"), object: nil, userInfo: userInfo)
+
+            // 发送通知
+            NotificationCenter.default.post(notification)
+            
+            
+            
+            
+        }
+    }
+    else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
+        if (keyRecorder.isKeyPressed("LEFTARROW")
+            && keyRecorder.isKeyPressed("RIGHTARROW")) {
 //            print("神魂颠倒……")
-//        }
-//    }
+            
+            // 在需要发送通知的地方
+            let userInfo: [AnyHashable: Any] = ["type": "alert", "info": "神魂颠倒"] // 通知携带的信息
+            let notification = Notification(name: Notification.Name("Notification"), object: nil, userInfo: userInfo)
+
+            // 发送通知
+            NotificationCenter.default.post(notification)
+        }
+    }
     
     //        print("appName" + mySelf.appName)
 //    if (mySelf.appName == "OpenEmu") {
@@ -245,20 +263,20 @@ Outside:if pressed == 1
 
 // over...other...
     
-    func showAlert(message: String, completionHandler: (() -> Void)? = nil) {
-        let alert = NSAlert()
-        alert.messageText = message
-        alert.addButton(withTitle: "好的")
-        alert.alertStyle = .informational
+func showAlert(message: String, completionHandler: (() -> Void)? = nil) {
+    let alert = NSAlert()
+    alert.messageText = message
+    alert.addButton(withTitle: "好的")
+    alert.alertStyle = .informational
 
-        if let window = NSApplication.shared.keyWindow {
-            alert.beginSheetModal(for: window) { (response) in
-                if response == .alertFirstButtonReturn {
-                    completionHandler?()
-                }
+    if let window = NSApplication.shared.keyWindow {
+        alert.beginSheetModal(for: window) { (response) in
+            if response == .alertFirstButtonReturn {
+                completionHandler?()
             }
         }
     }
+}
 
 //    // 使用示例。不是主线程弹不出来。
 //    showAlert(message: "这是一个提示", completionHandler: {

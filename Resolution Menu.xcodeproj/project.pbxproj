@@ -37,6 +37,8 @@
 		F47F38162ADA689D00ED166F /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F38152ADA689D00ED166F /* SkyLight.framework */; };
 		F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */; };
 		F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */; };
+		F49649AC2ADC429500BA32BB /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49649AB2ADC429500BA32BB /* WindowManager.swift */; };
+		F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49649AD2ADC5E9400BA32BB /* WindowManager.m */; };
 		F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C982ADBCA6D008E040C /* Extensions.swift */; };
 		F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,9 @@
 		F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayPreferencesInvoke.m; sourceTree = "<group>"; };
 		F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayPreferencesInvoke.h; sourceTree = "<group>"; };
 		F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecorder.swift; sourceTree = "<group>"; };
+		F49649AB2ADC429500BA32BB /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		F49649AD2ADC5E9400BA32BB /* WindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
+		F49649AF2ADC5EC800BA32BB /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		F4D11C982ADBCA6D008E040C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +172,9 @@
 				5E24225D1C4C12F50016019B /* Info.plist */,
 				5E2422521C4C12F50016019B /* AppDelegate.h */,
 				5E2422531C4C12F50016019B /* AppDelegate.m */,
+				F49649AB2ADC429500BA32BB /* WindowManager.swift */,
+				F49649AD2ADC5E9400BA32BB /* WindowManager.m */,
+				F49649AF2ADC5EC800BA32BB /* WindowManager.h */,
 				5E24227F1C4C23F60016019B /* DisplayModeMenuItem.h */,
 				5E2422801C4C23F60016019B /* DisplayModeMenuItem.m */,
 				5E24227C1C4C151F0016019B /* StartAtLoginController.h */,
@@ -379,6 +387,7 @@
 			files = (
 				F47F11822AD977DE00A30F8B /* DisplayPreferencesShell.swift in Sources */,
 				F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */,
+				F49649AC2ADC429500BA32BB /* WindowManager.swift in Sources */,
 				F47F32912ADA25A100ED166F /* MonitorPanel.m in Sources */,
 				F42157512AD924FD00AFD87C /* KMCallBackFunctions.swift in Sources */,
 				F42157502AD924FD00AFD87C /* KeyboardMonitor.swift in Sources */,
@@ -387,6 +396,7 @@
 				F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */,
 				F47F11A72ADA08DA00A30F8B /* ExecutableRunner.swift in Sources */,
 				5E2422541C4C12F50016019B /* AppDelegate.m in Sources */,
+				F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */,
 				F47F328E2ADA25A100ED166F /* DisplayPlacer.c in Sources */,
 				F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */,
 				F47F11802AD9762700A30F8B /* ShellCommandRunner.swift in Sources */,

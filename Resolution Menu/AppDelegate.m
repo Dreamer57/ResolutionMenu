@@ -12,6 +12,7 @@
 #import <IOKit/graphics/IOGraphicsLib.h>
 #import "ResolutionMenu-Swift.h"
 #include "DisplayPreferences/Headers/Bridging-Header.h"
+#include "WindowManager.h"
 
 static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
 
@@ -24,6 +25,11 @@ static KeyboardMonitor *keylogger;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    // 在这里添加监听通知的代码
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"Notification" object:nil];
+        
+    
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     _statusItem.menu = self.menu;
     _statusItem.image = [NSImage imageNamed:kStatusMenuTemplateName];
@@ -58,6 +64,54 @@ static KeyboardMonitor *keylogger;
 
 
 }
+
+- (void)handleNotification:(NSNotification *)notification {
+    
+//    printf("notification arrive");
+    
+    NSDictionary *userInfo = notification.userInfo;
+    if (userInfo) {
+        // 处理通知携带的信息
+        if ([userInfo[@"type"] isEqual: @"alert"]) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:userInfo[@"info"]];
+            [alert runModal];
+        }
+        
+        else if ([userInfo[@"type"] isEqual: @"max"]) {
+            [WindowManager setFrontmostWindowToMaximized];
+        }
+    }
+    
+
+}
+
+
+//- (void)maximizeFrontmostWindow {
+//    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+//    NSRunningApplication *frontmostApplication = [workspace frontmostApplication];
+//
+//    if (frontmostApplication) {
+//        pid_t pid = [frontmostApplication processIdentifier];
+//        AXUIElementRef appElement = AXUIElementCreateApplication(pid);
+//
+//        if (appElement) {
+//            CFArrayRef windows;
+//            if (AXUIElementCopyAttributeValues(appElement, kAXWindowsAttribute, 0, 100, &windows) == kAXErrorSuccess) {
+//                for (CFIndex i = 0; i < CFArrayGetCount(windows); i++) {
+//                    AXUIElementRef windowElement = CFArrayGetValueAtIndex(windows, i);
+//                    // 这里你可以执行任何你想要的窗口操作
+//                }
+//
+//                CFRelease(windows);
+//            }
+//
+//            CFRelease(appElement);
+//        }
+//    }
+//}
+
+
 
 - (void)dealloc
 {
