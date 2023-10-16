@@ -19,7 +19,7 @@ static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
 // 搞了差不多3小时，局部变量被释放，资源释放线程结束。
 static KeyboardMonitor *keylogger;
 
-//static KeyboardMonitor *keyMonitor;
+//static KeyMonitor *keyMonitorEvent;
 
 @implementation AppDelegate
 
@@ -35,6 +35,8 @@ static KeyboardMonitor *keylogger;
     _statusItem.image = [NSImage imageNamed:kStatusMenuTemplateName];
     _statusItem.highlightMode = YES;
     
+//    keyMonitorEvent = [[KeyMonitor alloc] init];
+//    [keyMonitorEvent start];
     
     
 //    keyMonitor = [[KeyboardMonitor alloc] init];
