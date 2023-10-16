@@ -9,6 +9,16 @@
 #import <Cocoa/Cocoa.h>
 
 @interface DisplayPreferencesInvoke : NSObject
+
++ (void) res1;
++ (void) res2;
++ (void) res3;
+
++ (void) degree0;
++ (void) degree270;
++ (void) degree90;
++ (void) degree180;
+
 + (void)degree:(CGDirectDisplayID)display andDegree:(int)degree;
 
 + (void)res:(CGDirectDisplayID)display andMode:(int)mode;

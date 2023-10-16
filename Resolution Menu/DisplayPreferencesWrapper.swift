@@ -8,6 +8,7 @@
 
 import Foundation
 
+// async，在主线程上用
 class DisplayPreferencesWrapper : NSObject {
     
     @objc
@@ -70,7 +71,16 @@ class DisplayPreferencesWrapper : NSObject {
         var cArgs = argv.map { strdup($0) }
         cArgs.append(nil) // 在最后添加一个 nil 以表示结束
         
-        DispatchQueue.global(qos: .default).async {
+        // global .default async 与 sync 区别：
+        // async 切换线程执行，sync 不会切换线程
+        // 这里是通过 UI 点击触发，所以是主线程
+        // 这里一定要切换线程，用另一个线程去做，不然会和 UI 抢资源
+        // 导致 CGDisplayRotation(screenId) 获取不到旋转后的新值
+        // 根本原因是，屏幕旋转后，重置分辨率后，屏幕上的App需要重新排列，UI 需要适应或渲染，这个时候一定不能用主线程，不然就是互相争夺
+//        DispatchQueue.global(qos: .default).async {
+        // 这个也是同步不切换线程，看样子猜测，这应该只会有一个线程，才能保证顺序
+        // 好了，到此为止了。
+        DispatchQueue(label: "com.yr.display.serial").async {
             // 调用 C 函数 displayPreferences
             displayPreferences(Int32(cArgs.count - 1), &cArgs)
             

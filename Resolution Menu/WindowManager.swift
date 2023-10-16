@@ -25,6 +25,7 @@ class WindowManagerSwift : NSObject {
         return nil
     }
 
+    // 不需要在主线程上执行
     @objc
     static func setFrontmostWindowToMaximized() {
         if let frontmostWindow = getFrontmostWindow() {

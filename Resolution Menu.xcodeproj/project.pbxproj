@@ -41,6 +41,7 @@
 		F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49649AD2ADC5E9400BA32BB /* WindowManager.m */; };
 		F4AB1BD02ADD4E7B006D5A31 /* AccessibilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BCF2ADD4E7B006D5A31 /* AccessibilityChecker.swift */; };
 		F4AB1BD22ADD52D2006D5A31 /* NotificationWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BD12ADD52D2006D5A31 /* NotificationWrap.swift */; };
+		F4AB1BD42ADDC0D2006D5A31 /* MainThreadWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */; };
 		F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C982ADBCA6D008E040C /* Extensions.swift */; };
 		F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		F49649AF2ADC5EC800BA32BB /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
 		F4AB1BCF2ADD4E7B006D5A31 /* AccessibilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityChecker.swift; sourceTree = "<group>"; };
 		F4AB1BD12ADD52D2006D5A31 /* NotificationWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWrap.swift; sourceTree = "<group>"; };
+		F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadWrap.swift; sourceTree = "<group>"; };
 		F4D11C982ADBCA6D008E040C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F4D11C9A2ADBCC9A008E040C /* RotateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,7 @@
 				5E2422531C4C12F50016019B /* AppDelegate.m */,
 				F49649AB2ADC429500BA32BB /* WindowManager.swift */,
 				F49649AD2ADC5E9400BA32BB /* WindowManager.m */,
+				F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */,
 				F49649AF2ADC5EC800BA32BB /* WindowManager.h */,
 				5E24227F1C4C23F60016019B /* DisplayModeMenuItem.h */,
 				5E2422801C4C23F60016019B /* DisplayModeMenuItem.m */,
@@ -406,6 +409,7 @@
 				F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */,
 				F47F328E2ADA25A100ED166F /* DisplayPlacer.c in Sources */,
 				F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */,
+				F4AB1BD42ADDC0D2006D5A31 /* MainThreadWrap.swift in Sources */,
 				F47F11802AD9762700A30F8B /* ShellCommandRunner.swift in Sources */,
 				F47F11892AD9C3C900A30F8B /* DisplayDegreeMenuItem.m in Sources */,
 				F42157532AD94D6F00AFD87C /* KeyMonitor.swift in Sources */,

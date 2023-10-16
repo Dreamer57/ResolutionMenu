@@ -17,21 +17,23 @@ class KeyboardMonitor: NSObject
     var bundlePathURL = Bundle.main.bundleURL   // Path to where the executable is present - Change this to use custom path
     var appName = ""                            // Active App name
 
+    var mainThread: Thread?
+    
     override init()
     {
         if AccessibilityChecker.checkAccessibilityPermission() {
-            print("\"辅助功能\"权限已启用。")
+            print("「辅助功能」权限已启用。")
         } else {
-            print("\"辅助功能\"权限未启用。")
-            NotificationWrap.sendAlert("「辅助功能」权限未启用，请开启权限后重启软件。")
+            print("「辅助功能」权限未启用。")
+            MainThreadWrap.showAlert("「辅助功能」权限未启用，请开启权限后重启软件。")
         }
         
         manager = IOHIDManagerCreate(kCFAllocatorDefault, IOOptionBits(kIOHIDOptionsTypeNone))
-
-
         
         // 调用父类的构造函数
         super.init()
+        
+        mainThread = Thread(target: self, selector: #selector(start), object: nil)
         
         if (CFGetTypeID(manager) != IOHIDManagerGetTypeID())
         {
@@ -100,15 +102,25 @@ class KeyboardMonitor: NSObject
         return IOHIDManagerOpen(manager, IOOptionBits(kIOHIDOptionsTypeNone));
     }
     
+    @objc
+    func threadStart() {
+        if (mainThread?.isExecuting == false){
+            // 启动线程
+            mainThread?.start()
+        }
+    }
+    
     /* Scheduling the HID Loop */
     @objc
     func start()
     {
-//        print("Keylogger.start")
-        IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue)
+//        print("KeyMonitor.start")
+//        IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue)
         
-//        IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue)
+        IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue)
         
+        // 最后，在后台线程中，确保运行 run loop，以便监听 HID 事件
+        CFRunLoopRun()
         
 //        DispatchQueue.global(qos: .default).async {
 //            if let runLoop = CFRunLoopGetCurrent() {
@@ -131,7 +143,8 @@ class KeyboardMonitor: NSObject
     /* Un-scheduling the HID Loop */
     func stop()
     {
-        IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue);
+//        IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue);
+        IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue);
     }
     
     

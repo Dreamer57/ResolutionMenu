@@ -23,7 +23,9 @@ class NotificationWrap : NSObject {
         let userInfo: [AnyHashable: Any] = ["type": type, "info": info] // 通知携带的信息
         let notification = Notification(name: Notification.Name("Notification"), object: nil, userInfo: userInfo)
 
-        // 发送通知
-        NotificationCenter.default.post(notification)
+//        DispatchQueue.main.async {
+            // 发送通知
+            NotificationCenter.default.post(notification)
+//        }
     }
 }

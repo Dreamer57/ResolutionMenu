@@ -17,7 +17,7 @@
 static NSString *const kStatusMenuTemplateName = @"StatusMenuTemplate";
 
 // 搞了差不多3小时，局部变量被释放，资源释放线程结束。
-static KeyboardMonitor *keylogger;
+static KeyboardMonitor *keyMonitor;
 
 //static KeyMonitor *keyMonitorEvent;
 
@@ -26,8 +26,13 @@ static KeyboardMonitor *keylogger;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
+    // 不用了，没用。
+    // 通知、观察者模式：
+    // 通知的底层实现通常包括使用线程切换
+    // 观察者模式通常在单线程环境中被使用
+    // 如果只是简单的功能，而且涉及的线程切换非常频繁，那么主动线程切换可能会更高效，因为它可以更精确地控制线程的切换时机。然而，如果通知频率较低，或者需要在多个地方共享状态更新，观察者模式可能更为方便和有效。
     // 在这里添加监听通知的代码
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"Notification" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"Notification" object:nil];
         
     
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -49,8 +54,9 @@ static KeyboardMonitor *keylogger;
 //    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //        @autoreleasepool {
     // 搞了差不多3小时，主要是keylogger变量被释放了。
-             keylogger = [[KeyboardMonitor alloc] init];
-            [keylogger start]; // 启动 Keylogger
+             keyMonitor = [[KeyboardMonitor alloc] init];
+//            [keylogger start]; // 启动 Keylogger
+            [keyMonitor threadStart]; // 独立线程 Keylogger
 
             // 可以在这里执行其他后台任务或操作
 //            [NSRunLoop currentRunLoop]; // 启动当前线程的运行循环，以保持线程活跃
@@ -67,28 +73,29 @@ static KeyboardMonitor *keylogger;
 
 }
 
-- (void)handleNotification:(NSNotification *)notification {
-    
-//    printf("notification arrive");
-    
-    NSDictionary *userInfo = notification.userInfo;
-    if (userInfo) {
-        // 处理通知携带的信息
-        if ([userInfo[@"type"] isEqual: @"alert"]) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:userInfo[@"info"]];
-            [alert runModal];
-        }
-        
-        else if ([userInfo[@"type"] isEqual: @"max"]) {
-            [WindowManager setFrontmostWindowToMaximized];
-            
-//            [WindowManagerSwift setFrontmostWindowToMaximized];
-        }
-    }
-    
-
-}
+//- (void)handleNotification:(NSNotification *)notification {
+//
+////    printf("notification arrive");
+//
+//    NSDictionary *userInfo = notification.userInfo;
+//    if (userInfo) {
+//        // 处理通知携带的信息
+//        if ([userInfo[@"type"] isEqual: @"alert"]) {
+//            NSAlert *alert = [[NSAlert alloc] init];
+//            [alert setMessageText: userInfo[@"info"]];
+//            [alert addButtonWithTitle: @"好"];
+//            [alert runModal];
+//        }
+//
+//        else if ([userInfo[@"type"] isEqual: @"max"]) {
+//            [WindowManager setFrontmostWindowToMaximized];
+//
+////            [WindowManagerSwift setFrontmostWindowToMaximized];
+//        }
+//    }
+//
+//
+//}
 
 
 //- (void)maximizeFrontmostWindow {

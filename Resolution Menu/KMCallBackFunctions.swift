@@ -99,12 +99,14 @@ class KMCallBackFunctions: NSObject
             KMCallBackFunctions.cmd = isKeyDown
         }
         
+        let noFlags = !ctrl && !shift && !opt && !cmd
+        
         // dr57 debug print
         //        print("scancode:\t\(scancode)\t"
         //            + "pressed:\t\(pressed)\t"
         //            + "appName:\t\(mySelf.appName)\t")
         //        // printPressedKeys
-        //        keyRecorder.printPressedKeys()
+//                keyRecorder.printPressedKeys()
         
         // keyDown 事件
         if isKeyDown
@@ -114,30 +116,30 @@ class KMCallBackFunctions: NSObject
             if (ctrl && cmd && keyRecorder.totalPressedKeys() == 3
                 && !opt && !shift) { // ctrl + cmd   begin
                 if (key == "1") {
-                    DisplayPreferencesInvoke.res(1, andMode: 3)
+                    DisplayPreferencesInvoke.res1()
                     //                    DisplayPreferencesExecutable.resMode3()
                 } else if (key == "2") {
-                    DisplayPreferencesInvoke.res(1, andMode: 6)
+                    DisplayPreferencesInvoke.res2()
                     //                    DisplayPreferencesExecutable.resMode6()
                 } else if (key == "3") {
-                    DisplayPreferencesInvoke.res(1, andMode: 8)
+                    DisplayPreferencesInvoke.res3()
                     //                    DisplayPreferencesExecutable.resMode8()
                 } else if (key == "4") {
                     //                    print("Control + Command + 4 被按下")
                     //            rotateCurrentDisplay(0)
-                    DisplayPreferencesInvoke.degree(1, andDegree: 0)
+                    DisplayPreferencesInvoke.degree0()
                     //                    DisplayPreferencesExecutable.rotationDegree0()
                 } else if (key == "5") {
                     //            rotateCurrentDisplay(270)
-                    DisplayPreferencesInvoke.degree(1, andDegree: 270)
+                    DisplayPreferencesInvoke.degree270()
                     //                    DisplayPreferencesExecutable.rotationDegree270()
                 } else if (key == "6") {
                     //            rotateCurrentDisplay(90)
-                    DisplayPreferencesInvoke.degree(1, andDegree: 90)
+                    DisplayPreferencesInvoke.degree90()
                     //                    DisplayPreferencesExecutable.rotationDegree90()
                 } else if (key == "7") {
                     //            rotateCurrentDisplay(180)
-                    DisplayPreferencesInvoke.degree(1, andDegree: 180)
+                    DisplayPreferencesInvoke.degree180()
                 }
             } // ctrl + cmd   end
             else if (ctrl && cmd && opt && keyRecorder.totalPressedKeys() == 4
@@ -165,8 +167,9 @@ class KMCallBackFunctions: NSObject
                 if (keyRecorder.isKeyPressed("LEFTARROW")
                     && keyRecorder.isKeyPressed("RIGHTARROW")) {
                     //            print("左右摇摆……")
-                    
-                    NotificationWrap.sendMax()
+//                    NotificationWrap.sendMax()
+                    WindowManagerSwift.setFrontmostWindowToMaximized()
+//                    MainThreadWrap.setFrontmostWindowToMaximized()
                 }
             }
             else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
@@ -175,9 +178,44 @@ class KMCallBackFunctions: NSObject
                     && keyRecorder.isKeyPressed("UPARROW")
                     && keyRecorder.isKeyPressed("DOWNARROW")
                 ) {
-                    //            print("神魂颠倒……")
-                    
                     NotificationWrap.sendAlert("神魂颠倒")
+                }
+            }
+            else if (noFlags && keyRecorder.totalPressedKeys() == 2) {
+                if (keyRecorder.isKeyPressed("`")
+                    && keyRecorder.isKeyPressed("1")) {
+                    DisplayPreferencesInvoke.res1()
+                } else if (keyRecorder.isKeyPressed("1")
+                           && keyRecorder.isKeyPressed("2")) {
+                    DisplayPreferencesInvoke.res2()
+                }
+                else if (keyRecorder.isKeyPressed("2")
+                         && keyRecorder.isKeyPressed("3")) {
+                    DisplayPreferencesInvoke.res3()
+                }
+                else if (keyRecorder.isKeyPressed("3")
+                         && keyRecorder.isKeyPressed("4")) {
+                    DisplayPreferencesInvoke.degree0()
+                }
+                else if (keyRecorder.isKeyPressed("4")
+                         && keyRecorder.isKeyPressed("5")) {
+                    DisplayPreferencesInvoke.degree270()
+                }
+                else if (keyRecorder.isKeyPressed("5")
+                         && keyRecorder.isKeyPressed("6")) {
+                    DisplayPreferencesInvoke.degree90()
+                }
+                else if (keyRecorder.isKeyPressed("6")
+                         && keyRecorder.isKeyPressed("7")) {
+                    DisplayPreferencesInvoke.degree180()
+                }
+            }
+            else if (noFlags && keyRecorder.totalPressedKeys() == 3) {
+                if (keyRecorder.isKeyPressed("p")
+                    && keyRecorder.isKeyPressed("[")
+                    && keyRecorder.isKeyPressed("]")) {
+//                    NotificationWrap.sendAlert("三指齐发")
+                    MainThreadWrap.showAlert("三指齐发")
                 }
             }
             
@@ -225,26 +263,3 @@ class KMCallBackFunctions: NSObject
 
     
 }
-
-
-// over...other...
-    
-func showAlert(message: String, completionHandler: (() -> Void)? = nil) {
-    let alert = NSAlert()
-    alert.messageText = message
-    alert.addButton(withTitle: "好的")
-    alert.alertStyle = .informational
-
-    if let window = NSApplication.shared.keyWindow {
-        alert.beginSheetModal(for: window) { (response) in
-            if response == .alertFirstButtonReturn {
-                completionHandler?()
-            }
-        }
-    }
-}
-
-//    // 使用示例。不是主线程弹不出来。
-//    showAlert(message: "这是一个提示", completionHandler: {
-//        print("用户点击了好的按钮")
-//    })
