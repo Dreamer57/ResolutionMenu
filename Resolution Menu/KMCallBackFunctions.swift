@@ -56,7 +56,7 @@ class KMCallBackFunctions: NSObject
      
     static let Handle_IOHIDInputValueCallback: IOHIDValueCallback = { context, result, sender, device in
         
-        let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
+//        let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
         let elem: IOHIDElement = IOHIDValueGetElement(device );
         
         if (IOHIDElementGetUsagePage(elem) != 0x07)
@@ -68,10 +68,9 @@ class KMCallBackFunctions: NSObject
         {
             return
         }
-        //        print(scancode)
+        
         let pressed = IOHIDValueGetIntegerValue(device );
         let isKeyDown = (pressed == 1)
-        //        print(pressed)
         
         
         let key = KeyboardMonitor.keyMap[UInt8(scancode)]![0]
@@ -107,36 +106,10 @@ class KMCallBackFunctions: NSObject
         //        // printPressedKeys
         //        keyRecorder.printPressedKeys()
         
-        
-        // break Outside 后，跳出 if else，执行 if else 后面的
-    Outside:
-        if pressed == 1
+        // keyDown 事件
+        if isKeyDown
         {
-//            print("if area")
-            
-            if scancode == 57
-            {
-                // CAPSLOCK
-//                KMCallBackFunctions.CAPSLOCK = !KMCallBackFunctions.CAPSLOCK
-//                print("break outside")
-//                break Outside
-            }
-            if scancode >= 224 && scancode <= 231
-            {
-                // left and right ctrl shit opt cmd
-                break Outside
-            }
-//            if KMCallBackFunctions.CAPSLOCK
-//            {
-//                //                fh?.write(mySelf.keyMap[scancode]![1].data(using: .utf8)!)
-//            }
-            //            else
-            //    {
-            //                print("scancode: " + "\t\(scancode)" + "\t"
-            //                      + "appName: " + "\t\(mySelf.appName)")
-            
             // -----***** hot key area  begin *****-----
-            
             
             if (ctrl && cmd && keyRecorder.totalPressedKeys() == 3
                 && !opt && !shift) { // ctrl + cmd   begin
@@ -215,20 +188,12 @@ class KMCallBackFunctions: NSObject
             // -----***** hot key area  end *****-----
             
             
-        } else {
-//            print("code area 1 : else")
-            if scancode >= 224 && scancode <= 231
-            {
-                // left and right ctrl shit opt cmd
-            }
         }
-//        print("code area 2 : if else over")
-//        print("---")
+        // keyUp
+        // 不做 keyUp 事件，因为有个问题，如果触发条件是 1 2 3 三个键一起松开才触发，这样比较难搞。
+        // 如果不是为了难搞，那用 keyDown 就够了。
+        // else {}
         
-//        if area
-//        break outside
-//        code area 2 : if else over
-//        ---
     }
     
     
