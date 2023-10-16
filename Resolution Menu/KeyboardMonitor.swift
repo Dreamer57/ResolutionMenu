@@ -49,9 +49,10 @@ class KeyboardMonitor: NSObject
         
         /* App switching notification*/
         NSWorkspace.shared.notificationCenter.addObserver(self,
-                                                            selector: #selector(activatedApp),
-                                                            name: NSWorkspace.didActivateApplicationNotification,
-                                                            object: nil)
+            selector: #selector(activatedApp),
+                name: NSWorkspace.didActivateApplicationNotification,
+              object: nil)
+        
          /* Connected and Disconnected Call Backs */
         IOHIDManagerRegisterDeviceMatchingCallback(manager, KMCallBackFunctions.Handle_DeviceMatchingCallback, observer)
         
@@ -134,7 +135,7 @@ class KeyboardMonitor: NSObject
     }
     
     
-    var keyMap: [UInt32:[String]] =
+    let keyMap: [UInt32:[String]] =
     {
         var map = [UInt32:[String]]()
         map[4] = ["a","A"]
@@ -248,3 +249,13 @@ class KeyboardMonitor: NSObject
     }()
 
 }
+//
+//public enum Scancode : UInt8, @unchecked Sendable {
+//
+//    case sc_A = 4
+//    case scB = 5
+//    case sc_1 = 1
+//    case sc2 = 2
+//    case sc3 = 3
+//
+//}

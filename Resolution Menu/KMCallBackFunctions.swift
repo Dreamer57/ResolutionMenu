@@ -14,7 +14,7 @@ class KMCallBackFunctions: NSObject
 {
     static var CAPSLOCK = false
 //    static var calander = Calendar.current
-    static var prev = ""
+//    static var prev = ""
     
     
     static var keyRecorder = KeyRecorder()
@@ -58,7 +58,7 @@ class KMCallBackFunctions: NSObject
         
         let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
         let elem: IOHIDElement = IOHIDValueGetElement(device );
-        var test: Bool
+        
         if (IOHIDElementGetUsagePage(elem) != 0x07)
         {
             return
