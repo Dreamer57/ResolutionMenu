@@ -20,9 +20,10 @@ class KeyboardMonitor: NSObject
     override init()
     {
         if AccessibilityChecker.checkAccessibilityPermission() {
-            print("辅助功能权限已启用。")
+            print("\"辅助功能\"权限已启用。")
         } else {
-            print("辅助功能权限未启用。")
+            print("\"辅助功能\"权限未启用。")
+            NotificationWrap.sendAlert("\"辅助功能\"权限未启用。")
         }
         
         manager = IOHIDManagerCreate(kCFAllocatorDefault, IOOptionBits(kIOHIDOptionsTypeNone))

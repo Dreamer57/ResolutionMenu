@@ -187,16 +187,7 @@ Outside:if pressed == 1
             && keyRecorder.isKeyPressed("RIGHTARROW")) {
 //            print("左右摇摆……")
             
-            // 在需要发送通知的地方
-            let userInfo: [AnyHashable: Any] = ["type": "max", "info": "value2"] // 通知携带的信息
-            let notification = Notification(name: Notification.Name("Notification"), object: nil, userInfo: userInfo)
-
-            // 发送通知
-            NotificationCenter.default.post(notification)
-            
-            
-            
-            
+            NotificationWrap.sendMax()
         }
     }
     else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
@@ -207,12 +198,7 @@ Outside:if pressed == 1
         ) {
 //            print("神魂颠倒……")
             
-            // 在需要发送通知的地方
-            let userInfo: [AnyHashable: Any] = ["type": "alert", "info": "神魂颠倒"] // 通知携带的信息
-            let notification = Notification(name: Notification.Name("Notification"), object: nil, userInfo: userInfo)
-
-            // 发送通知
-            NotificationCenter.default.post(notification)
+            NotificationWrap.sendAlert("神魂颠倒")
         }
     }
     
