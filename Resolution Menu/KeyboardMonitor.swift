@@ -23,7 +23,7 @@ class KeyboardMonitor: NSObject
             print("\"辅助功能\"权限已启用。")
         } else {
             print("\"辅助功能\"权限未启用。")
-            NotificationWrap.sendAlert("\"辅助功能\"权限未启用。")
+            NotificationWrap.sendAlert("「辅助功能」权限未启用，请开启权限后重启软件。")
         }
         
         manager = IOHIDManagerCreate(kCFAllocatorDefault, IOOptionBits(kIOHIDOptionsTypeNone))
