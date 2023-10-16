@@ -201,7 +201,10 @@ Outside:if pressed == 1
     }
     else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
         if (keyRecorder.isKeyPressed("LEFTARROW")
-            && keyRecorder.isKeyPressed("RIGHTARROW")) {
+            && keyRecorder.isKeyPressed("RIGHTARROW")
+            && keyRecorder.isKeyPressed("UPARROW")
+            && keyRecorder.isKeyPressed("DOWNARROW")
+        ) {
 //            print("神魂颠倒……")
             
             // 在需要发送通知的地方

@@ -80,6 +80,8 @@ static KeyboardMonitor *keylogger;
         
         else if ([userInfo[@"type"] isEqual: @"max"]) {
             [WindowManager setFrontmostWindowToMaximized];
+            
+//            [WindowManagerSwift setFrontmostWindowToMaximized];
         }
     }
     
