@@ -135,9 +135,9 @@ class KeyboardMonitor: NSObject
     }
     
     
-    let keyMap: [UInt32:[String]] =
+    static let keyMap: [UInt8:[String]] =
     {
-        var map = [UInt32:[String]]()
+        var map = [UInt8:[String]]()
         map[4] = ["a","A"]
         map[5] = ["b","B"]
         map[6] = ["c","C"]
