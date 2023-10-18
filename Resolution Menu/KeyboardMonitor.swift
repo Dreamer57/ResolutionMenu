@@ -17,6 +17,8 @@ class KeyboardMonitor: NSObject
     var bundlePathURL = Bundle.main.bundleURL   // Path to where the executable is present - Change this to use custom path
     var appName = ""                            // Active App name
 
+    let keyboard: VirtualHIDDeviceClientWrapper = VirtualHIDDeviceClientWrapper()
+    
     var mainThread: Thread?
     
     override init()
@@ -32,8 +34,7 @@ class KeyboardMonitor: NSObject
         
         // 调用父类的构造函数
         super.init()
-        
-        mainThread = Thread(target: self, selector: #selector(start), object: nil)
+
         
         if (CFGetTypeID(manager) != IOHIDManagerGetTypeID())
         {
@@ -64,7 +65,7 @@ class KeyboardMonitor: NSObject
         IOHIDManagerRegisterInputValueCallback(manager, KMCallBackFunctions.Handle_IOHIDInputValueCallback, observer);
         
         /* Input report Call Backs */
-//        IOHIDManagerRegisterInputReportCallback(manager, CallBackFunctions.Handle_IOHIDInputReportCallback, observer)
+//        IOHIDManagerRegisterInputReportCallback(manager, KMCallBackFunctions.Handle_IOHIDInputReportCallback, observer)
         
         /* Open HID Manager */
         let ioreturn: IOReturn = openHIDManager()
@@ -104,10 +105,18 @@ class KeyboardMonitor: NSObject
     
     @objc
     func threadStart() {
+        
+        if ((mainThread == nil)) {
+            
+            mainThread = Thread(target: self, selector: #selector(start), object: nil)
+        }
+        
         if (mainThread?.isExecuting == false){
             // 启动线程
             mainThread?.start()
         }
+        
+        keyboard.start();
     }
     
     /* Scheduling the HID Loop */
@@ -145,6 +154,11 @@ class KeyboardMonitor: NSObject
     {
 //        IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue);
         IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue);
+        
+        mainThread?.cancel();
+        mainThread = nil;
+        
+        keyboard.stop();
     }
     
     

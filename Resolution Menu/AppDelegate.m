@@ -128,6 +128,7 @@ static KeyboardMonitor *keyMonitor;
 {
     // Cleanup the system status bar menu, probably not strictly necessary at this point
     [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
+//    printf(@"bye bye"); // 没输出
 }
 
 - (IBAction)rotationNormal:(id)sender
