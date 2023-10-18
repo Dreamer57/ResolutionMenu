@@ -102,10 +102,10 @@ class KMCallBackFunctions: NSObject
         let noFlags = !ctrl && !shift && !opt && !cmd
         
         // dr57 debug print
-        //        print("scancode:\t\(scancode)\t"
-        //            + "pressed:\t\(pressed)\t"
-        //            + "appName:\t\(mySelf.appName)\t")
-        //        // printPressedKeys
+//                print("scancode:\t\(scancode)\t"
+//                    + "pressed:\t\(pressed)\t"
+//                    + "appName:\t\(mySelf.appName)\t")
+                // printPressedKeys
 //                keyRecorder.printPressedKeys()
         
         // keyDown 事件
@@ -223,7 +223,19 @@ class KMCallBackFunctions: NSObject
                      && keyRecorder.totalPressedKeys() == 2) {
                 if (keyRecorder.isKeyPressed("OPT_R")
                     && keyRecorder.isKeyPressed("LEFTARROW")) {
-                    unlock(mySelf.keyboard)
+//                    print("trigger appName: \(mySelf.appName)")
+                    if (mySelf.appName == "loginwindow") {
+                        // 登录，锁屏界面
+                        unlock(mySelf.keyboard)
+                    } else if (mySelf.appName == "系统设置") {
+                        unlock(mySelf.keyboard)
+                    }
+                    else if (mySelf.appName == "coreautha") {
+                        // google chrome 密码进程，反应慢一点
+                        unlock(mySelf.keyboard, slow: true)
+                    } else {
+                        unlock(mySelf.keyboard)
+                    }
                     // mySelf.keyboard.unlock()
                 }
             }
@@ -310,9 +322,11 @@ class KMCallBackFunctions: NSObject
 //            }
 //    }
     
-    static func unlock(_ keyboard: VirtualHIDDeviceClientWrapper) {
+    static func unlock(_ keyboard: VirtualHIDDeviceClientWrapper, slow: Bool = false) {
         keyboard.pressKey(key_d)
-        usleep(50 * 1000) // chrome 浏览器反应要慢一点。
+        if (slow) {
+            usleep(100 * 1000) // chrome 浏览器反应要慢一点。
+        }
         keyboard.pressKey(key_r)
         keyboard.pressKey(key_e)
         keyboard.pressKey(key_a)

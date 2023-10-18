@@ -10,6 +10,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
+- (void) dealloc;
+
+-(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
+
 @property (assign) IBOutlet NSMenu *menu;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 
@@ -18,6 +22,8 @@
 - (IBAction)rotation270:(id)sender;
 
 - (IBAction)rotation90:(id)sender;
+
+//- (IBAction)quit:(id)sender;
 
 - (IBAction)openDisplayPreferences:(id)sender;
 

@@ -150,6 +150,7 @@ class KeyboardMonitor: NSObject
     }
     
     /* Un-scheduling the HID Loop */
+    @objc
     func stop()
     {
 //        IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue);
@@ -159,6 +160,7 @@ class KeyboardMonitor: NSObject
         mainThread = nil;
         
         keyboard.stop();
+        keyboard.dealloc()
     }
     
     

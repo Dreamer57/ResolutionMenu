@@ -131,6 +131,21 @@ static KeyboardMonitor *keyMonitor;
 //    printf(@"bye bye"); // 没输出
 }
 
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    // 在这里执行清理操作和检查
+    // 如果应用程序可以退出，返回 NSTerminateNow
+    // 如果需要取消退出，返回 NSTerminateCancel
+    // 如果需要延迟退出，返回 NSTerminateLater
+
+    [keyMonitor stop];
+//    [self dealloc];
+    
+    printf("bye");
+    
+    return NSTerminateNow;
+}
+
+
 - (IBAction)rotationNormal:(id)sender
 {
     [DisplayPreferencesExecutable rotationDegree0];
@@ -145,6 +160,11 @@ static KeyboardMonitor *keyMonitor;
 {
     [DisplayPreferencesExecutable rotationDegree90];
 }
+
+//- (IBAction)quit:(id)sender
+//{
+//    printf(@"quit...");
+//}
 
 - (IBAction)openDisplayPreferences:(id)sender
 {
