@@ -12,9 +12,9 @@ import Cocoa
 
 class KMCallBackFunctions: NSObject
 {
-//    static var CAPSLOCK = false
-//    static var calander = Calendar.current
-//    static var prev = ""
+    //    static var CAPSLOCK = false
+    //    static var calander = Calendar.current
+    //    static var prev = ""
     
     
     static var keyRecorder = KeyRecorder()
@@ -24,36 +24,36 @@ class KMCallBackFunctions: NSObject
     static var opt = false
     static var shift = false
     
-//    static let lock = NSLock()
-//    static var isRunning = false
+    //    static let lock = NSLock()
+    //    static var isRunning = false
     
     static let Handle_DeviceMatchingCallback: IOHIDDeviceCallback = { context, result, sender, device in
         
-//        let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
-
+        //        let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
+        
         
         let product = IOHIDDeviceGetProperty(device, kIOHIDProductKey as CFString) as! String
-
+        
         print(product)
         
-//        if (product == "IQUNIX-AVER80-BT1") {
-//            let inputReportSize = 64
-//            var inputBuffer = [UInt8](repeating: 0, count: inputReportSize)
-//            IOHIDDeviceRegisterInputReportCallback(device, &inputBuffer, inputReportSize, Handle_IOHIDInputReportCallback, context)
-//            print("RegisterInputReport")
-//        }
+        //        if (product == "IQUNIX-AVER80-BT1") {
+        //            let inputReportSize = 64
+        //            var inputBuffer = [UInt8](repeating: 0, count: inputReportSize)
+        //            IOHIDDeviceRegisterInputReportCallback(device, &inputBuffer, inputReportSize, Handle_IOHIDInputReportCallback, context)
+        //            print("RegisterInputReport")
+        //        }
         
     }
     
     static let Handle_DeviceRemovalCallback: IOHIDDeviceCallback = { context, result, sender, device in
         
-            
-//            let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
-
+        
+        //            let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
+        
         
         print("Disconnected: " + "\t\(device)")
     }
-     
+    
     static let Handle_IOHIDInputValueCallback: IOHIDValueCallback = { context, result, sender, device in
         
         let mySelf = Unmanaged<KeyboardMonitor>.fromOpaque(context!).takeUnretainedValue()
@@ -100,13 +100,14 @@ class KMCallBackFunctions: NSObject
         }
         
         let noFlags = !ctrl && !shift && !opt && !cmd
+        let allFlags = ctrl && shift && opt && cmd
         
         // dr57 debug print
-//                print("scancode:\t\(scancode)\t"
-//                    + "pressed:\t\(pressed)\t"
-//                    + "appName:\t\(mySelf.appName)\t")
-                // printPressedKeys
-//                keyRecorder.printPressedKeys()
+        //                print("scancode:\t\(scancode)\t"
+        //                    + "pressed:\t\(pressed)\t"
+        //                    + "appName:\t\(mySelf.appName)\t")
+        // printPressedKeys
+        //                keyRecorder.printPressedKeys()
         
         // keyDown 事件
         if isKeyDown
@@ -167,9 +168,9 @@ class KMCallBackFunctions: NSObject
                 if (keyRecorder.isKeyPressed("LEFTARROW")
                     && keyRecorder.isKeyPressed("RIGHTARROW")) {
                     //            print("左右摇摆……")
-//                    NotificationWrap.sendMax()
+                    //                    NotificationWrap.sendMax()
                     WindowManagerSwift.setFrontmostWindowToMaximized()
-//                    MainThreadWrap.setFrontmostWindowToMaximized()
+                    //                    MainThreadWrap.setFrontmostWindowToMaximized()
                 }
             }
             else if (ctrl && cmd && keyRecorder.totalPressedKeys() == 6) {
@@ -214,16 +215,17 @@ class KMCallBackFunctions: NSObject
                 if (keyRecorder.isKeyPressed("p")
                     && keyRecorder.isKeyPressed("[")
                     && keyRecorder.isKeyPressed("]")) {
-//                    NotificationWrap.sendAlert("三指齐发")
+                    //                    NotificationWrap.sendAlert("三指齐发")
                     MainThreadWrap.showAlert("三指齐发")
                 }
             }
             // opt
             else if (opt && !ctrl && !shift && !cmd
                      && keyRecorder.totalPressedKeys() == 2) {
+                // unlock
                 if (keyRecorder.isKeyPressed("OPT_R")
                     && keyRecorder.isKeyPressed("LEFTARROW")) {
-//                    print("trigger appName: \(mySelf.appName)")
+                    //                    print("trigger appName: \(mySelf.appName)")
                     if (mySelf.appName == "loginwindow") {
                         // 登录，锁屏界面
                         unlock(mySelf.keyboard)
@@ -244,6 +246,32 @@ class KMCallBackFunctions: NSObject
                         // mySelf.keyboard.unlock()
                     }
                 }
+                // lock, to sleep
+                else if (keyRecorder.isKeyPressed(DOWN_ARROW)) {
+                    SystemUtility.enterSleep()
+                }
+            }
+            // 关机！慎按！
+            else if (allFlags && keyRecorder.totalPressedKeys() == 8) {
+                if (keyRecorder.isKeyPressed(UP_ARROW)
+                    && keyRecorder.isKeyPressed(DOWN_ARROW)
+                    && keyRecorder.isKeyPressed(LEFT_ARROW)
+                    && keyRecorder.isKeyPressed(RIGHT_ARROW)) {
+                    MainThreadWrap.showAlert("shutdown...")
+                    // 关机！！！
+                    SystemUtility.shutdown()
+                }
+            // 重启！慎按！
+            } else if (allFlags && keyRecorder.totalPressedKeys() == 9) {
+                if (keyRecorder.isKeyPressed("z")
+                    && keyRecorder.isKeyPressed(UP_ARROW)
+                    && keyRecorder.isKeyPressed(DOWN_ARROW)
+                    && keyRecorder.isKeyPressed(LEFT_ARROW)
+                    && keyRecorder.isKeyPressed(RIGHT_ARROW)) {
+                    MainThreadWrap.showAlert("reboot...")
+                    // 重启！！！
+                    SystemUtility.reboot()
+                }
             }
             
             //        print("appName" + mySelf.appName)
@@ -257,76 +285,76 @@ class KMCallBackFunctions: NSObject
         // keyUp
         // 不做 keyUp 事件，因为有个问题，如果触发条件是 1 2 3 三个键一起松开才触发，这样比较难搞。
         // 如果不是为了难搞，那用 keyDown 就够了。
-         else {
-//             if (key == "p") {
-//                 print("key release p")
-//                 mySelf.keyboard.pressKey(4)
-//                 mySelf.keyboard.pressKey(5)
-//                 mySelf.keyboard.pressKey(6)
-////                 let device = IOHIDElementGetDevice(elem)
-////                 keyPress(device: device, keyCode: 4)
-////                 keyPress(device: device, keyCode: 5)
-////                 keyPress(device: device, keyCode: 6)
-//             }
-         }
+        else {
+            //             if (key == "p") {
+            //                 print("key release p")
+            //                 mySelf.keyboard.pressKey(4)
+            //                 mySelf.keyboard.pressKey(5)
+            //                 mySelf.keyboard.pressKey(6)
+            ////                 let device = IOHIDElementGetDevice(elem)
+            ////                 keyPress(device: device, keyCode: 4)
+            ////                 keyPress(device: device, keyCode: 5)
+            ////                 keyPress(device: device, keyCode: 6)
+            //             }
+        }
         
     }
     
     
     
     
-//    static let Handle_IOHIDInputReportCallback: IOHIDReportCallback = { context, result, sender, type, reportID, report, reportLength in
-//
-//
-//
-//        let reportData = Data(bytes: report, count: reportLength)
-//        let reportStringArray = reportData.map { String($0) }
-//        let reportString = reportStringArray.joined(separator: ",")
-////        if let reportString = String(data: reportData, encoding: .ascii) {
-//            print("reportID: " +  "\t\(reportID)" + "\t"
-//                  + "report: " + reportString + "\t"
-//                  + "reportLength: " +  "\t\(reportLength)" + "\t"
-//                  + "result: " + "\t\(result)" + "\t"
-//                  + "pointer: " + "\t\(report)" + "\t"
-//                  + "pointee: " + "\t\(report.pointee)" + "\t"
-//                  + "sender: " + "\t\(String(describing: sender))" + "\t"
-//            )
-////        }
-//
-//
-//    }
+    //    static let Handle_IOHIDInputReportCallback: IOHIDReportCallback = { context, result, sender, type, reportID, report, reportLength in
+    //
+    //
+    //
+    //        let reportData = Data(bytes: report, count: reportLength)
+    //        let reportStringArray = reportData.map { String($0) }
+    //        let reportString = reportStringArray.joined(separator: ",")
+    ////        if let reportString = String(data: reportData, encoding: .ascii) {
+    //            print("reportID: " +  "\t\(reportID)" + "\t"
+    //                  + "report: " + reportString + "\t"
+    //                  + "reportLength: " +  "\t\(reportLength)" + "\t"
+    //                  + "result: " + "\t\(result)" + "\t"
+    //                  + "pointer: " + "\t\(report)" + "\t"
+    //                  + "pointee: " + "\t\(report.pointee)" + "\t"
+    //                  + "sender: " + "\t\(String(describing: sender))" + "\t"
+    //            )
+    ////        }
+    //
+    //
+    //    }
     
-
     
-
     
-//    // keyborad
-//    static func keyDown(device: IOHIDDevice, keyCode: UInt8) {
-//        deviceSetReport(device: device, keyCode: keyCode, keyCode2: 0, keyCode3: 0)
-//    }
-//
-//    static func keyUp(device: IOHIDDevice) {
-//        deviceSetReport(device: device, keyCode: 0, keyCode2: 0, keyCode3: 3)
-//    }
-//
-//    static func keyPress(device: IOHIDDevice, keyCode: UInt8) {
-//        keyDown(device: device, keyCode: keyCode)
-//        keyUp(device: device)
-//    }
-//
-//    static func deviceSetReport(device: IOHIDDevice, keyCode: UInt8,
-//                                keyCode2: UInt8, keyCode3: uint8) {
-//        let reportID = 1 // 报告 ID
-//        var reportData: [UInt8] = [1,0,0,0,0,0,0,0,0]
-//        let reportLength = reportData.count
-//        reportData[3] = keyCode;
-//        reportData[4] = keyCode2;
-//        reportData[5] = keyCode3;
-//        var ret = IOHIDDeviceSetReport(device, kIOHIDReportTypeInput, reportID, reportData, reportLength);
-//            if (ret != kIOReturnSuccess) {
-//                print("指令发送失败");
-//            }
-//    }
+    
+    
+    //    // keyborad
+    //    static func keyDown(device: IOHIDDevice, keyCode: UInt8) {
+    //        deviceSetReport(device: device, keyCode: keyCode, keyCode2: 0, keyCode3: 0)
+    //    }
+    //
+    //    static func keyUp(device: IOHIDDevice) {
+    //        deviceSetReport(device: device, keyCode: 0, keyCode2: 0, keyCode3: 3)
+    //    }
+    //
+    //    static func keyPress(device: IOHIDDevice, keyCode: UInt8) {
+    //        keyDown(device: device, keyCode: keyCode)
+    //        keyUp(device: device)
+    //    }
+    //
+    //    static func deviceSetReport(device: IOHIDDevice, keyCode: UInt8,
+    //                                keyCode2: UInt8, keyCode3: uint8) {
+    //        let reportID = 1 // 报告 ID
+    //        var reportData: [UInt8] = [1,0,0,0,0,0,0,0,0]
+    //        let reportLength = reportData.count
+    //        reportData[3] = keyCode;
+    //        reportData[4] = keyCode2;
+    //        reportData[5] = keyCode3;
+    //        var ret = IOHIDDeviceSetReport(device, kIOHIDReportTypeInput, reportID, reportData, reportLength);
+    //            if (ret != kIOReturnSuccess) {
+    //                print("指令发送失败");
+    //            }
+    //    }
     
     static func unlock(_ keyboard: VirtualHIDDeviceClientWrapper, slow: Bool = false) {
         keyboard.pressKey(key_d)
@@ -345,7 +373,7 @@ class KMCallBackFunctions: NSObject
         keyboard.pressKey(key_3)
         keyboard.pressKey(key_enter)
     }
- 
+    
     
     
     // key scancode
@@ -387,4 +415,10 @@ class KMCallBackFunctions: NSObject
     static let key_0       :UInt8   = 39
     static let key_enter   :UInt8   = 40
     static let key_shift_r :UInt8   = 22
+    
+
+    static let UP_ARROW    :String  = "UPARROW"
+    static let DOWN_ARROW    :String  = "DOWNARROW"
+    static let LEFT_ARROW    :String  = "LEFTARROW"
+    static let RIGHT_ARROW    :String  = "RIGHTARROW"
 }

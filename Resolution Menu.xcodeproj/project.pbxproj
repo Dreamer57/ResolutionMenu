@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5E2422541C4C12F50016019B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2422531C4C12F50016019B /* AppDelegate.m */; };
 		5E2422571C4C12F50016019B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2422561C4C12F50016019B /* main.m */; };
-		5E2422591C4C12F50016019B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2422581C4C12F50016019B /* Assets.xcassets */; };
-		5E24225C1C4C12F50016019B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E24225A1C4C12F50016019B /* MainMenu.xib */; };
 		5E24226B1C4C135B0016019B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E24226A1C4C135B0016019B /* AppDelegate.m */; };
 		5E24226E1C4C135B0016019B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E24226D1C4C135B0016019B /* main.m */; };
 		5E2422791C4C14A50016019B /* Resolution Menu Helper.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 5E2422671C4C135B0016019B /* Resolution Menu Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -30,6 +28,8 @@
 		F47F32912ADA25A100ED166F /* MonitorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F328D2ADA25A100ED166F /* MonitorPanel.m */; };
 		F47F381A2ADA75E300ED166F /* DisplayPreferencesInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */; };
 		F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */; };
+		F4940E1B2AE142C500B50476 /* SystemUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4940E1A2AE142C500B50476 /* SystemUtility.swift */; };
+		F4940E1E2AE157FF00B50476 /* UNIXUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4940E1D2AE157FF00B50476 /* UNIXUtilities.swift */; };
 		F49649AC2ADC429500BA32BB /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49649AB2ADC429500BA32BB /* WindowManager.swift */; };
 		F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49649AD2ADC5E9400BA32BB /* WindowManager.m */; };
 		F4AB1BD02ADD4E7B006D5A31 /* AccessibilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BCF2ADD4E7B006D5A31 /* AccessibilityChecker.swift */; };
@@ -48,6 +48,8 @@
 		F4E3D5E62ADFB91A00D616BC /* VirtualHIDDeviceClientWrap.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4E3D5D12ADFB91A00D616BC /* VirtualHIDDeviceClientWrap.mm */; };
 		F4E3D5E72ADFB91A00D616BC /* main1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3D5D22ADFB91A00D616BC /* main1.swift */; };
 		F4E3D5E82ADFBEA200D616BC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47F380B2ADA681C00ED166F /* IOKit.framework */; };
+		F4FE80872AE13D5D00680F34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2422581C4C12F50016019B /* Assets.xcassets */; };
+		F4FE80882AE13DAE00680F34 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E24225A1C4C12F50016019B /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayPreferencesInvoke.m; sourceTree = "<group>"; };
 		F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayPreferencesInvoke.h; sourceTree = "<group>"; };
 		F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecorder.swift; sourceTree = "<group>"; };
+		F4940E1A2AE142C500B50476 /* SystemUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtility.swift; sourceTree = "<group>"; };
+		F4940E1D2AE157FF00B50476 /* UNIXUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNIXUtilities.swift; sourceTree = "<group>"; };
 		F49649AB2ADC429500BA32BB /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		F49649AD2ADC5E9400BA32BB /* WindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
 		F49649AF2ADC5EC800BA32BB /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
@@ -1716,6 +1720,7 @@
 		5E2422511C4C12F50016019B /* Resolution Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F4940E1C2AE157DB00B50476 /* Utility */,
 				F4E3D5D22ADFB91A00D616BC /* main1.swift */,
 				F4E3CF382ADFB91800D616BC /* VirtualHIDDevice */,
 				F4E3D5D12ADFB91A00D616BC /* VirtualHIDDeviceClientWrap.mm */,
@@ -1729,6 +1734,7 @@
 				5E2422521C4C12F50016019B /* AppDelegate.h */,
 				5E2422531C4C12F50016019B /* AppDelegate.m */,
 				F49649AB2ADC429500BA32BB /* WindowManager.swift */,
+				F4940E1A2AE142C500B50476 /* SystemUtility.swift */,
 				F49649AD2ADC5E9400BA32BB /* WindowManager.m */,
 				F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */,
 				F49649AF2ADC5EC800BA32BB /* WindowManager.h */,
@@ -1809,6 +1815,14 @@
 				F47F328C2ADA25A100ED166F /* Bridging-Header.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		F4940E1C2AE157DB00B50476 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F4940E1D2AE157FF00B50476 /* UNIXUtilities.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		F4D11C972ADBCA6D008E040C /* lib */ = {
@@ -4647,8 +4661,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E2422591C4C12F50016019B /* Assets.xcassets in Resources */,
-				5E24225C1C4C12F50016019B /* MainMenu.xib in Resources */,
+				F4FE80882AE13DAE00680F34 /* MainMenu.xib in Resources */,
+				F4FE80872AE13D5D00680F34 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4672,6 +4686,7 @@
 				F4E3D5E52ADFB91A00D616BC /* main.cpp in Sources */,
 				F4D11C992ADBCA6D008E040C /* Extensions.swift in Sources */,
 				F49649AC2ADC429500BA32BB /* WindowManager.swift in Sources */,
+				F4940E1E2AE157FF00B50476 /* UNIXUtilities.swift in Sources */,
 				F47F32912ADA25A100ED166F /* MonitorPanel.m in Sources */,
 				F42157512AD924FD00AFD87C /* KMCallBackFunctions.swift in Sources */,
 				F4E3D5E72ADFB91A00D616BC /* main1.swift in Sources */,
@@ -4679,6 +4694,7 @@
 				F47F11A92ADA0A5100A30F8B /* DisplayPreferencesExecutable.swift in Sources */,
 				5E2422571C4C12F50016019B /* main.m in Sources */,
 				F4AB1BD02ADD4E7B006D5A31 /* AccessibilityChecker.swift in Sources */,
+				F4940E1B2AE142C500B50476 /* SystemUtility.swift in Sources */,
 				F492CD362ADBEE0B004AE112 /* KeyRecorder.swift in Sources */,
 				F47F11A72ADA08DA00A30F8B /* ExecutableRunner.swift in Sources */,
 				5E2422541C4C12F50016019B /* AppDelegate.m in Sources */,
@@ -4734,6 +4750,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -4823,6 +4840,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -4907,6 +4925,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"Resolution\\ Menu/DisplayPreferences/Headers",
 					/System/Library/PrivateFrameworks,
@@ -4916,6 +4935,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu";
 				PRODUCT_MODULE_NAME = ResolutionMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4934,6 +4954,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"Resolution\\ Menu/DisplayPreferences/Headers",
 					/System/Library/PrivateFrameworks,
@@ -4942,7 +4963,9 @@
 				INFOPLIST_FILE = "Resolution Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu";
 				PRODUCT_MODULE_NAME = ResolutionMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,4 +1,5 @@
 PRODUCT=$(shell ls -d *.xcodeproj | head -n 1 | sed 's/.xcodeproj$$//' | sed 's/ /\\ /g')
+TARGET=$(shell echo $(PRODUCT) | sed 's/ /\\ /g' | sed 's/\..*//')
 PROJECT=$(PRODUCT).xcodeproj
 INTERMEDIATE=build/Release/$(APP)
 APP=$(PRODUCT).app
@@ -19,7 +20,9 @@ $(INTERMEDIATE): xcodebuild
 
 .PHONY: xcodebuild
 xcodebuild:
-	xcodebuild -project $(PROJECT) -target $(PRODUCT) -configuration Release
+# 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration Archive ARCHS=arm64 SDKROOT=macosx SUPPORTED_PLATFORMS=macosx
+# 	xcodebuild -project $(PROJECT) -scheme $(TARGET) -configuration Release ARCHS=arm64 SDKROOT=macosx SUPPORTED_PLATFORMS=macosx
+	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration Release
 
 $(ZIP): $(APP)
 	rm -f $(ZIP)
