@@ -4930,7 +4930,7 @@
 					"Resolution\\ Menu/DisplayPreferences/Headers",
 					/System/Library/PrivateFrameworks,
 				);
-				HEADER_SEARCH_PATHS = /System/Library/PrivateFrameworks;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Resolution Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
@@ -4942,9 +4942,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Resolution Menu/Resolution Menu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "/System/Library/PrivateFrameworks $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
-				SYSTEM_HEADER_SEARCH_PATHS = "Resolution\\ Menu/VirtualHIDDevice/vendor/include Resolution\\ Menu/VirtualHIDDevice/include /System/Library/PrivateFrameworks";
-				USER_HEADER_SEARCH_PATHS = /System/Library/PrivateFrameworks;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "Resolution\\ Menu/VirtualHIDDevice/vendor/include Resolution\\ Menu/VirtualHIDDevice/include";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -4959,7 +4959,7 @@
 					"Resolution\\ Menu/DisplayPreferences/Headers",
 					/System/Library/PrivateFrameworks,
 				);
-				HEADER_SEARCH_PATHS = /System/Library/PrivateFrameworks;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Resolution Menu/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
@@ -4971,9 +4971,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Resolution Menu/Resolution Menu-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "/System/Library/PrivateFrameworks $(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
-				SYSTEM_HEADER_SEARCH_PATHS = "Resolution\\ Menu/VirtualHIDDevice/vendor/include Resolution\\ Menu/VirtualHIDDevice/include /System/Library/PrivateFrameworks";
-				USER_HEADER_SEARCH_PATHS = /System/Library/PrivateFrameworks;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				SYSTEM_HEADER_SEARCH_PATHS = "Resolution\\ Menu/VirtualHIDDevice/vendor/include Resolution\\ Menu/VirtualHIDDevice/include";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
