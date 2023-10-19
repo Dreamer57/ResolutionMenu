@@ -83,7 +83,7 @@ class KeyboardMonitor: NSObject
             let name = app.localizedName
         {
             self.appName = name
-            
+            // todo: 可以用一个数组，记录3到5个。提供灵活的判断。
             
         }
     }

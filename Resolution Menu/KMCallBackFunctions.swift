@@ -231,12 +231,18 @@ class KMCallBackFunctions: NSObject
                         unlock(mySelf.keyboard)
                     }
                     else if (mySelf.appName == "coreautha") {
-                        // google chrome 密码进程，反应慢一点
+                        // 系统验证进程，反应慢一点
+                        // Google Chrome 调的这个
+                        // App Store 也调的这个
                         unlock(mySelf.keyboard, slow: true)
-                    } else {
+                    } else if (mySelf.appName == "Safari浏览器") {
+                        // Safari浏览器 的输入密码进程用得自己写的同一个进程。
                         unlock(mySelf.keyboard)
                     }
-                    // mySelf.keyboard.unlock()
+                    else {
+                        // 其它情况就不触发了。
+                        // mySelf.keyboard.unlock()
+                    }
                 }
             }
             
