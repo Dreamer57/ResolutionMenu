@@ -72,11 +72,32 @@ void VirtualHIDDeviceClient::pressKey(uint16_t key) {
     keyUp();
 }
 
+void VirtualHIDDeviceClient::pressShiftAndKey(uint16_t key) {
+    if (!isReady()) return;
+    
+    keyDownShiftAndKey(key);
+    keyUp();
+}
+
 void VirtualHIDDeviceClient::keyDown(uint16_t key) {
     if (!isReady()) return;
     
     // key down
     pqrs::karabiner::driverkit::virtual_hid_device_driver::hid_report::keyboard_input report;
+    report.keys.insert(key);
+    
+    client->async_post_report(report);
+    
+}
+
+void VirtualHIDDeviceClient::keyDownShiftAndKey(uint16_t key) {
+    if (!isReady()) return;
+    
+    // key down
+    pqrs::karabiner::driverkit::virtual_hid_device_driver::hid_report::keyboard_input report;
+    
+    report.modifiers.insert(pqrs::karabiner::driverkit::virtual_hid_device_driver::hid_report::modifier::left_shift);
+    
     report.keys.insert(key);
     
     client->async_post_report(report);

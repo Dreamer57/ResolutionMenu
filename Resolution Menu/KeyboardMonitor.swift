@@ -21,6 +21,7 @@ class KeyboardMonitor: NSObject
     
     var mainThread: Thread?
     
+    
     override init()
     {
         if AccessibilityChecker.checkAccessibilityPermission() {
@@ -275,6 +276,32 @@ class KeyboardMonitor: NSObject
         map[230] = ["OPT_R","\\OPT_R"] // right alt
         map[231] = ["CMD_R","\\CMD_R"] // right cmd
         return map
+    }()
+    
+    static let scancodeMap: [String: UInt8] = {
+        var reversed = [String: UInt8]()
+        
+        for (key, values) in keyMap {
+            reversed[values[0]] = key
+//            for value in values {
+//                reversed[value] = key
+//            }
+        }
+//        print("\(reversed)\n")
+        return reversed
+    }()
+    
+    static let scancodeShiftMap: [String: UInt8] = {
+        var reversed = [String: UInt8]()
+        
+        for (key, values) in keyMap {
+            reversed[values[1]] = key
+//            for value in values {
+//                reversed[value] = key
+//            }
+        }
+//        print("\(reversed)\n")
+        return reversed
     }()
 
 }

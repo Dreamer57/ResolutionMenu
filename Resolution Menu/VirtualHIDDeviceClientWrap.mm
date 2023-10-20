@@ -39,6 +39,10 @@ VirtualHIDDeviceClient *client1;
     client1->pressKey(key);
 }
 
+- (void) pressShiftAndKey:(UInt8)key {
+    client1->pressShiftAndKey(key);
+}
+
 - (void)keyDown:(UInt8)key {
     client1->keyDown(key);
 }

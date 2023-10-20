@@ -26,11 +26,16 @@ public:
     void start();
     void stop();
     
+    void pressShiftAndKey(uint16_t key);
+    
     void unlock();
     
     
 private:
+    
     void initClient();
+    
+    void keyDownShiftAndKey(uint16_t key);
     
     
     

@@ -20,6 +20,7 @@
 - (void)stop;
 
 - (void) pressKey: (UInt8)key;
+- (void) pressShiftAndKey: (UInt8)key;
 - (void) keyDown: (UInt8)key;
 - (void) keyUp: (UInt8)key;
 - (BOOL) isReady;

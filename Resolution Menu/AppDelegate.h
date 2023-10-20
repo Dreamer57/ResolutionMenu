@@ -27,5 +27,11 @@
 
 - (IBAction)openDisplayPreferences:(id)sender;
 
+- (void)constructMenu;
+
+- (void)askPassword;
+
++ (NSString*)t:(NSString*)key;
+
 @end
 

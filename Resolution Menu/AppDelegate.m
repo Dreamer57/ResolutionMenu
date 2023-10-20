@@ -21,7 +21,9 @@ static KeyboardMonitor *keyMonitor;
 
 //static KeyMonitor *keyMonitorEvent;
 
+
 @implementation AppDelegate
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -70,7 +72,18 @@ static KeyboardMonitor *keyMonitor;
 //    });
 
 
+    
 
+//    if ([passwordManager fetchPasswordWithWarn:false] == nil) {
+//        [passwordManager askPassword];
+//    } else {
+//        NSString *password = [passwordManager fetchPasswordWithWarn:false];
+//        printf("%s", password);
+//    }
+    
+    [self constructMenu];
+    
+//    [PasswordManager getPassword];
 }
 
 //- (void)handleNotification:(NSNotification *)notification {
@@ -236,5 +249,21 @@ static KeyboardMonitor *keyMonitor;
 
     }
 }
+
+- (void)constructMenu {
+    [self.menu addItemWithTitle: [AppDelegate t:@"set_password"] action:@selector(askPassword) keyEquivalent:@""];
+//    NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"set_password", @"") action:@selector(askPassword) keyEquivalent:@""];
+//    [mainMenu addItem:menuItem];
+
+}
+
+- (void)askPassword {
+    [PasswordManager askPassword];
+}
+
++ (NSString*)t:(NSString*)key {
+    return NSLocalizedString(key, comment: "");
+}
+
 
 @end

@@ -32,6 +32,8 @@
 		F4940E1E2AE157FF00B50476 /* UNIXUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4940E1D2AE157FF00B50476 /* UNIXUtilities.swift */; };
 		F49649AC2ADC429500BA32BB /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49649AB2ADC429500BA32BB /* WindowManager.swift */; };
 		F49649AE2ADC5E9400BA32BB /* WindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49649AD2ADC5E9400BA32BB /* WindowManager.m */; };
+		F4A33A4B2AE1D1FD00893604 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A33A4A2AE1D1FD00893604 /* PasswordManager.swift */; };
+		F4A33A552AE1D53E00893604 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4A33A532AE1D53E00893604 /* Localizable.strings */; };
 		F4AB1BD02ADD4E7B006D5A31 /* AccessibilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BCF2ADD4E7B006D5A31 /* AccessibilityChecker.swift */; };
 		F4AB1BD22ADD52D2006D5A31 /* NotificationWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BD12ADD52D2006D5A31 /* NotificationWrap.swift */; };
 		F4AB1BD42ADDC0D2006D5A31 /* MainThreadWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */; };
@@ -126,6 +128,8 @@
 		F49649AB2ADC429500BA32BB /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		F49649AD2ADC5E9400BA32BB /* WindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowManager.m; sourceTree = "<group>"; };
 		F49649AF2ADC5EC800BA32BB /* WindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowManager.h; sourceTree = "<group>"; };
+		F4A33A4A2AE1D1FD00893604 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		F4A33A542AE1D53E00893604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F4AB1BCF2ADD4E7B006D5A31 /* AccessibilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityChecker.swift; sourceTree = "<group>"; };
 		F4AB1BD12ADD52D2006D5A31 /* NotificationWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWrap.swift; sourceTree = "<group>"; };
 		F4AB1BD32ADDC0D2006D5A31 /* MainThreadWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadWrap.swift; sourceTree = "<group>"; };
@@ -1720,6 +1724,7 @@
 		5E2422511C4C12F50016019B /* Resolution Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F4A33A532AE1D53E00893604 /* Localizable.strings */,
 				F4940E1C2AE157DB00B50476 /* Utility */,
 				F4E3D5D22ADFB91A00D616BC /* main1.swift */,
 				F4E3CF382ADFB91800D616BC /* VirtualHIDDevice */,
@@ -1733,6 +1738,7 @@
 				5E24225D1C4C12F50016019B /* Info.plist */,
 				5E2422521C4C12F50016019B /* AppDelegate.h */,
 				5E2422531C4C12F50016019B /* AppDelegate.m */,
+				F4A33A4A2AE1D1FD00893604 /* PasswordManager.swift */,
 				F49649AB2ADC429500BA32BB /* WindowManager.swift */,
 				F4940E1A2AE142C500B50476 /* SystemUtility.swift */,
 				F49649AD2ADC5E9400BA32BB /* WindowManager.m */,
@@ -4662,6 +4668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FE80882AE13DAE00680F34 /* MainMenu.xib in Resources */,
+				F4A33A552AE1D53E00893604 /* Localizable.strings in Resources */,
 				F4FE80872AE13D5D00680F34 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4710,6 +4717,7 @@
 				F4D11C9B2ADBCC9A008E040C /* RotateDisplay.swift in Sources */,
 				5E24227E1C4C151F0016019B /* StartAtLoginController.m in Sources */,
 				F47F11862AD9C00E00A30F8B /* DisplayDegreeMenuItem.swift in Sources */,
+				F4A33A4B2AE1D1FD00893604 /* PasswordManager.swift in Sources */,
 				5E2422811C4C23F60016019B /* DisplayModeMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4741,6 +4749,14 @@
 				5E2422821C4C25A70016019B /* nl */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F4A33A532AE1D53E00893604 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4A33A542AE1D53E00893604 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
