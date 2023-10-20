@@ -122,6 +122,8 @@
 		F47F38152ADA689D00ED166F /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
 		F47F38192ADA75E300ED166F /* DisplayPreferencesInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayPreferencesInvoke.m; sourceTree = "<group>"; };
 		F47F381B2ADA760F00ED166F /* DisplayPreferencesInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayPreferencesInvoke.h; sourceTree = "<group>"; };
+		F483AE0B2AE26DD900FDB484 /* Resolution Menu Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Resolution Menu Helper.entitlements"; sourceTree = "<group>"; };
+		F483AE0C2AE26E8C00FDB484 /* Resolution Menu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Resolution Menu.entitlements"; sourceTree = "<group>"; };
 		F492CD352ADBEE0B004AE112 /* KeyRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecorder.swift; sourceTree = "<group>"; };
 		F4940E1A2AE142C500B50476 /* SystemUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtility.swift; sourceTree = "<group>"; };
 		F4940E1D2AE157FF00B50476 /* UNIXUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNIXUtilities.swift; sourceTree = "<group>"; };
@@ -1724,6 +1726,7 @@
 		5E2422511C4C12F50016019B /* Resolution Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F483AE0C2AE26E8C00FDB484 /* Resolution Menu.entitlements */,
 				F4A33A532AE1D53E00893604 /* Localizable.strings */,
 				F4940E1C2AE157DB00B50476 /* Utility */,
 				F4E3D5D22ADFB91A00D616BC /* main1.swift */,
@@ -1770,6 +1773,7 @@
 		5E2422681C4C135B0016019B /* Resolution Menu Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F483AE0B2AE26DD900FDB484 /* Resolution Menu Helper.entitlements */,
 				5E24226D1C4C135B0016019B /* main.m */,
 				5E2422741C4C135B0016019B /* Info.plist */,
 				5E2422691C4C135B0016019B /* AppDelegate.h */,
@@ -4888,6 +4892,7 @@
 				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_MODULE_NAME = "";
@@ -4940,6 +4945,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Resolution Menu/Resolution Menu.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4969,6 +4975,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Resolution Menu/Resolution Menu.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4997,10 +5004,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resolution Menu Helper/Resolution Menu Helper.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Resolution Menu Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.lapulapu.Resolution-Menu-Helper";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu-Helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -5009,10 +5017,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Resolution Menu Helper/Resolution Menu Helper.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Resolution Menu Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.lapulapu.Resolution-Menu-Helper";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yr.Resolution-Menu-Helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
